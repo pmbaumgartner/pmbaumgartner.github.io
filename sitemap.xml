@@ -13,7 +13,7 @@
   </url>
   
   <url>
-    <loc>http://www.example.com/recipies/</loc>
+    <loc>http://www.example.com/notebooks/</loc>
     <lastmod>2017-04-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -37,17 +37,17 @@
   </url>
   
   <url>
-    <loc>http://www.example.com/recipies/colored-roc-curves/</loc>
+    <loc>http://www.example.com/notebooks/colored-roc-curves/</loc>
     <lastmod>2017-04-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/recipies/biclustering-with-paul-revere/</loc>
+    <loc>http://www.example.com/notebooks/biclustering-with-paul-revere/</loc>
     <lastmod>2017-03-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/recipies/tsne-to-bokeh/</loc>
+    <loc>http://www.example.com/notebooks/tsne-to-bokeh/</loc>
     <lastmod>2017-03-25T00:00:00+00:00</lastmod>
   </url>
   

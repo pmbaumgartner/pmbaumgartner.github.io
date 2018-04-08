@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Recipies on </title>
-    <link>http://www.example.com/recipies/</link>
-    <description>Recent content in Recipies on </description>
+    <title>Notebooks on </title>
+    <link>http://www.example.com/notebooks/</link>
+    <description>Recent content in Notebooks on </description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 04 Apr 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://www.example.com/recipies/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.example.com/notebooks/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Colored ROC Curves</title>
-      <link>http://www.example.com/recipies/colored-roc-curves/</link>
+      <link>http://www.example.com/notebooks/colored-roc-curves/</link>
       <pubDate>Tue, 04 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/recipies/colored-roc-curves/</guid>
+      <guid>http://www.example.com/notebooks/colored-roc-curves/</guid>
       <description>The Receiver Operating Characteristic (ROC) curve is helpful in evaluating model performance, especially since Area Under the Curve (AUC ROC) has a several friendly interpretations. I use ROC curves in evaluating models and have to explain the output to non-technical folks. I was reading through Machine Learning: The Art and Science of Algorithms that Make Sense of Data and stumbled upon this nice visual and interpretation of ROC (tied to AUC):</description>
     </item>
     
     <item>
       <title>Biclustering (with Paul Revere)</title>
-      <link>http://www.example.com/recipies/biclustering-with-paul-revere/</link>
+      <link>http://www.example.com/notebooks/biclustering-with-paul-revere/</link>
       <pubDate>Wed, 29 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/recipies/biclustering-with-paul-revere/</guid>
+      <guid>http://www.example.com/notebooks/biclustering-with-paul-revere/</guid>
       <description>Biclustering is a helpful clustering procedure that derives cluster membership for both rows and columns. Clustering rows and columns individually is fairly common. I view biclustering as an extension that allows me to ask: &amp;ldquo;If these columns are clustered together, which rows (if any) point towards that clustering? Accordingly, if any rows are clustered together, which column values might tell me why they&amp;rsquo;re clustered?&amp;rdquo;
 I have found it helpful with:</description>
     </item>
     
     <item>
       <title>Dimension Reduction with TSNE and Bokeh Scatterplot</title>
-      <link>http://www.example.com/recipies/tsne-to-bokeh/</link>
+      <link>http://www.example.com/notebooks/tsne-to-bokeh/</link>
       <pubDate>Sat, 25 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/recipies/tsne-to-bokeh/</guid>
+      <guid>http://www.example.com/notebooks/tsne-to-bokeh/</guid>
       <description>This is a workflow I use often in data exploration. TSNE gives a good representation of high-dimensional data, and Bokeh is helpful in creating a simple interactive plots with contextual info given by colors and tooltips.
 This workflow has been extremely helpful for:
  text analytics/NLP tasks if text data is passed through a TfidfVectorizer or similar from scikit-learn understanding word2vec or doc2vec vectors by passing them to TSNE getting an idea of separability in doing prediction / classification by passing the outcome variable to bokeh  This example uses the Australian atheletes data set, which contains 11 numeric variables.</description>
