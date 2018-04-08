@@ -180,8 +180,8 @@ ga('send', 'pageview');
 <li>Python 3.x (It will probably work on 2.x as well)</li>
 <li>Flask</li>
 <li>A text editor (I used Sublime Text 2, but am starting to love Atom)</li>
-<li><a href="https://ngrok.com/" target="_blank">ngrok</a> for testing our application</li>
-<li><a href="https://developer.forecast.io/" target="_blank">forecast.io</a> API Key</li>
+<li><a href="https://ngrok.com/">ngrok</a> for testing our application</li>
+<li><a href="https://developer.forecast.io/">forecast.io</a> API Key</li>
 </ul>
 
 <p><strong>Skills</strong></p>
@@ -221,7 +221,7 @@ app <span style="color:#f92672">=</span> Flask(__name__)
 app <span style="color:#f92672">=</span> Flask(__name__)</code></pre></div>
 <p>In this step we&rsquo;re importing the required libraries. We&rsquo;re importing the <code>Flask</code> class from the <code>flask</code> package, as well as the <code>os</code> package, which we&rsquo;ll need later in our code.</p>
 
-<p>We&rsquo;re also creating an application object named <code>app</code> from the <code>Flask</code> class. Don&rsquo;t worry about the <code>__name__</code> parameter for the Flask object, if you&rsquo;re really curious <a href="http://flask.pocoo.org/docs/0.10/api/" target="_blank">here&rsquo;s some detail</a>.</p>
+<p>We&rsquo;re also creating an application object named <code>app</code> from the <code>Flask</code> class. Don&rsquo;t worry about the <code>__name__</code> parameter for the Flask object, if you&rsquo;re really curious <a href="http://flask.pocoo.org/docs/0.10/api/">here&rsquo;s some detail</a>.</p>
 
 <h4 id="defining-routing-and-request-methods">Defining Routing and Request Methods</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/hello&#39;</span>, methods<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;POST&#39;</span>])
@@ -229,7 +229,7 @@ app <span style="color:#f92672">=</span> Flask(__name__)</code></pre></div>
     <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;Hello Slack!&#39;</span></code></pre></div>
 <p>This is the functional meat of our application so let&rsquo;s break it down. <code>@app.route()</code> is a function decorator &ndash; it basically modifies something about the next function we&rsquo;re going to declare. The first parameter to this decorator is <code>'/hello'</code>. This parameter is critically important: it defines what happens when someone goes to the URL <code>http://www.oururl.com/hello</code>. The second parameter is <code>methods=['POST']</code>. This is telling us that we are only going to accept POST requests at this route.</p>
 
-<p>The idea of requests were a bit perplexing to me at first so I&rsquo;ll try and briefly explain. At the most basic level, communication on the internet mostly exists between clients and servers (there&rsquo;s actually a good Simple Wikipedia article on <a href="https://simple.wikipedia.org/wiki/Client-server" target="_blank">this</a>). For example: when you&rsquo;re surfing the web, you&rsquo;re actually making a <code>GET</code> request as a client to the server in order to view a webpage. This request tells a website or application to &ldquo;give the client some information&rdquo;. For this current page that information is HTML and some other files that are then interpreted by your web browser and displayed. <code>POST</code> requests tell a site or application that it will be receiving information at that URL. That is: instead of a website or application sending something, the application will receive something. In our case, our application is going to receive the <code>POST</code> request from Slack, and that request will contain some information which our application can use.</p>
+<p>The idea of requests were a bit perplexing to me at first so I&rsquo;ll try and briefly explain. At the most basic level, communication on the internet mostly exists between clients and servers (there&rsquo;s actually a good Simple Wikipedia article on <a href="https://simple.wikipedia.org/wiki/Client-server">this</a>). For example: when you&rsquo;re surfing the web, you&rsquo;re actually making a <code>GET</code> request as a client to the server in order to view a webpage. This request tells a website or application to &ldquo;give the client some information&rdquo;. For this current page that information is HTML and some other files that are then interpreted by your web browser and displayed. <code>POST</code> requests tell a site or application that it will be receiving information at that URL. That is: instead of a website or application sending something, the application will receive something. In our case, our application is going to receive the <code>POST</code> request from Slack, and that request will contain some information which our application can use.</p>
 
 <p>Finally we define the <code>hello()</code> function, which defines what happens when someone uses our <code>/hello</code> route. In this case, all we&rsquo;re going to do is return a string to them that says <code>Hello Slack!</code> if a request is made.</p>
 
@@ -237,7 +237,7 @@ app <span style="color:#f92672">=</span> Flask(__name__)</code></pre></div>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
     port <span style="color:#f92672">=</span> int(os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;PORT&#39;</span>, <span style="color:#ae81ff">5000</span>))
     app<span style="color:#f92672">.</span>run(host<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0.0.0.0&#39;</span>, port<span style="color:#f92672">=</span>port, debug<span style="color:#f92672">=</span>True)</code></pre></div>
-<p>This last chunk does something simple: when you run this program (and it&rsquo;s the <a href="http://stackoverflow.com/questions/419163/what-does-if-name-main-do" target="_blank">main program</a>), find the port of <code>5000</code>, and then finally serve the application locally using that port.</p>
+<p>This last chunk does something simple: when you run this program (and it&rsquo;s the <a href="http://stackoverflow.com/questions/419163/what-does-if-name-main-do">main program</a>), find the port of <code>5000</code>, and then finally serve the application locally using that port.</p>
 
 <h3 id="testing-our-application-with-ngrok">Testing our Application with ngrok</h3>
 
@@ -247,7 +247,7 @@ app <span style="color:#f92672">=</span> Flask(__name__)</code></pre></div>
 
 <p>We could send <code>POST</code> requests from our computer to our application locally using <code>curl</code>, but that&rsquo;s more work than just loading a page in a browser and, more importantly, we would have to put some effort into making sure our request was in the same format as it would come from Slack. Additionally, our request won&rsquo;t be coming from our local computer to our local server, it will be coming from wherever the Slack server is to our server. Because of that, we can&rsquo;t use <code>localhost</code> for testing with Slack, since <code>localhost</code> (relative to Slack, which is sending the request) is where the Slack server is, and it doesn&rsquo;t have our application files.</p>
 
-<p>Luckily, there&rsquo;s a fantastic application called <a href="https://ngrok.com/" target="_blank">ngrok</a> that allows us to create a public URL to access a local server. We can use this to host our application locally, then point our Slack application to the public URL generated by ngrok. Using ngrok is fairly simple: download the file, open a shell to where you downloaded the file (or take this time to add it to your path), and type <code>ngrok http 5000</code> in the shell. You should now see something like this in your terminal:</p>
+<p>Luckily, there&rsquo;s a fantastic application called <a href="https://ngrok.com/">ngrok</a> that allows us to create a public URL to access a local server. We can use this to host our application locally, then point our Slack application to the public URL generated by ngrok. Using ngrok is fairly simple: download the file, open a shell to where you downloaded the file (or take this time to add it to your path), and type <code>ngrok http 5000</code> in the shell. You should now see something like this in your terminal:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ngrok by @inconshreveable                                       
 
 Tunnel Status                 online
@@ -262,7 +262,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
 
 <h3 id="adding-our-slash-command-to-slack">Adding our Slash Command to Slack</h3>
 
-<p>To add a slash command integration to your Slack channel, head to <a href="https://slack.com/apps" target="_blank">https://slack.com/apps</a>, then navigate to <em>Browse apps &gt; Custom Integrations &gt; Slash Commands</em> and click the <em>Add Configuration</em> button.</p>
+<p>To add a slash command integration to your Slack channel, head to <a href="https://slack.com/apps">https://slack.com/apps</a>, then navigate to <em>Browse apps &gt; Custom Integrations &gt; Slash Commands</em> and click the <em>Add Configuration</em> button.</p>
 
 <p>Our slash command for our example will start as <code>/hello</code>. Type that in and click <em>Add Slash Command Configuration</em>.</p>
 

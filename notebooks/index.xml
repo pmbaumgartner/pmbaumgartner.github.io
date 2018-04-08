@@ -5,10 +5,32 @@
     <link>http://www.example.com/notebooks/</link>
     <description>Recent content in Notebooks on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 04 Apr 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Jun 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://www.example.com/notebooks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>An Exploration in Earth &amp; Word Movers Distance</title>
+      <link>http://www.example.com/notebooks/word-movers-distance-exploration/</link>
+      <pubDate>Sun, 18 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.example.com/notebooks/word-movers-distance-exploration/</guid>
+      <description>Links Link to Notebook
+
+What&amp;rsquo;s in this notebook? This is the notebook behind my blog post An Exploration in Earth &amp;amp; Word Movers Distance. It&amp;rsquo;s an exploratin into Earth/Word Movers Distance algorithm that includes a there&amp;rsquo;s a lot of great matplotlib plots and some pandas-fu.</description>
+    </item>
+    
+    <item>
+      <title>The Impact of Model Output Transformations on ROC</title>
+      <link>http://www.example.com/notebooks/output-transformations-roc-impact/</link>
+      <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.example.com/notebooks/output-transformations-roc-impact/</guid>
+      <description>Links Link to Notebook
+
+What&amp;rsquo;s in this notebook? This is the notebook behind my blog post The Impact of Model Output Transformations on ROC. It contains some seaborn plots, some pandas-fu with method chaining, a simulation of analyzing model results, and some plots with seaborn.</description>
+    </item>
     
     <item>
       <title>Colored ROC Curves</title>
@@ -16,7 +38,9 @@
       <pubDate>Tue, 04 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>http://www.example.com/notebooks/colored-roc-curves/</guid>
-      <description>The Receiver Operating Characteristic (ROC) curve is helpful in evaluating model performance, especially since Area Under the Curve (AUC ROC) has a several friendly interpretations. I use ROC curves in evaluating models and have to explain the output to non-technical folks. I was reading through Machine Learning: The Art and Science of Algorithms that Make Sense of Data and stumbled upon this nice visual and interpretation of ROC (tied to AUC):</description>
+      <description>Links Link to Notebook
+
+What&amp;rsquo;s in this notebook? The Receiver Operating Characteristic (ROC) curve is helpful in evaluating model performance, especially since Area Under the Curve (AUC ROC) has a several friendly interpretations. I use ROC curves in evaluating models I have to explain the model performance to non-technical folks. I was reading through Machine Learning: The Art and Science of Algorithms that Make Sense of Data and stumbled upon this nice visual and interpretation of ROC (tied to AUC):</description>
     </item>
     
     <item>
@@ -25,8 +49,9 @@
       <pubDate>Wed, 29 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>http://www.example.com/notebooks/biclustering-with-paul-revere/</guid>
-      <description>Biclustering is a helpful clustering procedure that derives cluster membership for both rows and columns. Clustering rows and columns individually is fairly common. I view biclustering as an extension that allows me to ask: &amp;ldquo;If these columns are clustered together, which rows (if any) point towards that clustering? Accordingly, if any rows are clustered together, which column values might tell me why they&amp;rsquo;re clustered?&amp;rdquo;
-I have found it helpful with:</description>
+      <description>Links Link to Notebook
+
+What&amp;rsquo;s in this notebook? Biclustering is an unsupervised learning algorithm that clusters both the rows and columns. This notebook contains a workflow for completing biclustering in a network analysis context as well as a clean export of the data to an excel spreadsheet.</description>
     </item>
     
     <item>
@@ -35,7 +60,9 @@ I have found it helpful with:</description>
       <pubDate>Sat, 25 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>http://www.example.com/notebooks/tsne-to-bokeh/</guid>
-      <description>This is a workflow I use often in data exploration. TSNE gives a good representation of high-dimensional data, and Bokeh is helpful in creating a simple interactive plots with contextual info given by colors and tooltips.
+      <description>Link to Notebook
+
+What&amp;rsquo;s in this notebook? This is a workflow I use often in data exploration. TSNE gives a good representation of high-dimensional data, and Bokeh is helpful in creating a simple interactive plots with contextual info given by colors and tooltips.
 This workflow has been extremely helpful for:
  text analytics/NLP tasks if text data is passed through a TfidfVectorizer or similar from scikit-learn understanding word2vec or doc2vec vectors by passing them to TSNE getting an idea of separability in doing prediction / classification by passing the outcome variable to bokeh  This example uses the Australian atheletes data set, which contains 11 numeric variables.</description>
     </item>

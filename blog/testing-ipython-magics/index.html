@@ -191,19 +191,16 @@ ip<span style="color:#f92672">.</span>magic(<span style="color:#e6db74">&#39;loa
 
 <p>I&rsquo;ve been working on testing my code more and I figured this was a good project to continue practicing. I understood how to write basic tests that excecuted python code, but running a magic to test present an intersting case. In an ipython shell, magics are prepended with a <code>%</code> and work as expected, but if you type a magic into a regular python shell, it&rsquo;ll give you a <code>SyntaxError</code>.</p>
 
-<p>Luckily, ipython itself is well tested and they provide access to a shell object that you can send commands to. However, the documentation around how to use this to actually write tests is patchy. I pieced together my understanding from going through the tests for the <a href="https://bitbucket.org/rpy2/rpy2/src/d5d60e9a0f684c27015fa29c26bbb7fd75863bc2/rpy/ipython/tests/test_rmagic.py?at=default&amp;fileviewer=file-view-default" target="_blank">standard magics</a> as well as the tests for the <a href="https://bitbucket.org/rpy2/rpy2/src/d5d60e9a0f684c27015fa29c26bbb7fd75863bc2/rpy/ipython/tests/test_rmagic.py?at=default&amp;fileviewer=file-view-default" target="_blank">rpy2 magics</a>.</p>
+<p>Luckily, ipython itself is well tested and they provide access to a shell object that you can send commands to. However, the documentation around how to use this to actually write tests is patchy. I pieced together my understanding from going through the tests for the <a href="https://bitbucket.org/rpy2/rpy2/src/d5d60e9a0f684c27015fa29c26bbb7fd75863bc2/rpy/ipython/tests/test_rmagic.py?at=default&amp;fileviewer=file-view-default">standard magics</a> as well as the tests for the <a href="https://bitbucket.org/rpy2/rpy2/src/d5d60e9a0f684c27015fa29c26bbb7fd75863bc2/rpy/ipython/tests/test_rmagic.py?at=default&amp;fileviewer=file-view-default">rpy2 magics</a>.</p>
 
 <h3 id="example-detail">Example Detail</h3>
 
 <p>There are three important lines (after import) in the example code above that will allow you to test ipython magics.</p>
 
 <p>First, we use the <code>get_ipython</code> method to get a global ipython object. If you actually run this first line in a standard python shell, you&rsquo;ll see something interesting:</p>
-
-<pre><code>&gt;&gt;&gt; from IPython.testing.globalipapp import get_ipython
-&gt;&gt;&gt; ip = get_ipython()
-In :
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">from</span> IPython.testing.globalipapp <span style="color:#f92672">import</span> get_ipython
+<span style="color:#f92672">&gt;&gt;&gt;</span> ip <span style="color:#f92672">=</span> get_ipython()
+In :</code></pre></div>
 <p>This will both create a shell object that you can reference with <code>ip</code> as well as turn that standard python shell into an ipython shell.</p>
 
 <p>Second, we load the magic with <code>ip.magic('load_ext excelify')</code>. The <code>.magic()</code> method basically does the of prepending the argument provided with a <code>%</code> if you were in an ipython shell.</p>

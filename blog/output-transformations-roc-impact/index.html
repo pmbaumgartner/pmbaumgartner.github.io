@@ -157,7 +157,7 @@ ga('send', 'pageview');
   <div class='container entry-content'>
   
 
-<p>Risk Assessment tools are currently used to assist in decision-making at several points in the criminal justice system. These tools take in some data about an individual and to provide a &lsquo;risk score&rsquo; for an individual that&rsquo;s reflective of their likelihood of committing a specific behavior in the future. A standard outcome of interest is recidivism, or <code>a person's relapse into criminal behavior, often after the person receives sanctions or undergoes intervention for a previous crime</code> (<a href="https://www.nij.gov/topics/corrections/recidivism/Pages/welcome.aspx" target="_blank">NIJ</a>). One thing the field seems to have settled on is using area under the receiver operating characteristic (AUC ROC) scores in evaluating the accuracy of these tools. AUC is a sensible evaluation measure since it&rsquo;s indifferent to base rates and has a straightforward interpretation.</p>
+<p>Risk Assessment tools are currently used to assist in decision-making at several points in the criminal justice system. These tools take in some data about an individual and to provide a &lsquo;risk score&rsquo; for an individual that&rsquo;s reflective of their likelihood of committing a specific behavior in the future. A standard outcome of interest is recidivism, or <code>a person's relapse into criminal behavior, often after the person receives sanctions or undergoes intervention for a previous crime</code> (<a href="https://www.nij.gov/topics/corrections/recidivism/Pages/welcome.aspx">NIJ</a>). One thing the field seems to have settled on is using area under the receiver operating characteristic (AUC ROC) scores in evaluating the accuracy of these tools. AUC is a sensible evaluation measure since it&rsquo;s indifferent to base rates and has a straightforward interpretation.</p>
 
 <p>The hypothetical example below explains what AUC ROC (Ranking Accuracy) measures.</p>
 
@@ -165,9 +165,9 @@ ga('send', 'pageview');
 
 <h2 id="compas-risk-assessment-scores">COMPAS &amp; Risk Assessment Scores</h2>
 
-<p>In the world of risk assessment, the most well known risk assessment tool is probably COMPAS by Noirthpointe. COMPAS is a black box algorithm that is used to predict recidivism, and was the subject of an <a href="https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm" target="_blank">investigation by ProPublica</a> as well as a <a href="https://www.nytimes.com/2016/06/23/us/backlash-in-wisconsin-against-using-data-to-foretell-defendants-futures.html" target="_blank">lawsuit in Wisconsin</a>.</p>
+<p>In the world of risk assessment, the most well known risk assessment tool is probably COMPAS by Noirthpointe. COMPAS is a black box algorithm that is used to predict recidivism, and was the subject of an <a href="https://www.propublica.org/article/how-we-analyzed-the-compas-recidivism-algorithm">investigation by ProPublica</a> as well as a <a href="https://www.nytimes.com/2016/06/23/us/backlash-in-wisconsin-against-using-data-to-foretell-defendants-futures.html">lawsuit in Wisconsin</a>.</p>
 
-<p>Northpointe <a href="http://www.northpointeinc.com/files/downloads/FAQ_Document.pdf" target="_blank">claims</a> that the with the COMPAS tool &ldquo;AUCs ranged from .68 to .71 in the full sample&rdquo; for general recidivism, with an &ldquo;AUC 0.67 for violent recidivism&rdquo;. In reading these claims, it is important to consider there is <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0072484" target="_blank">some evidence of authorship bias</a> in model evaluation, to the extent that &ldquo;[&hellip;] studies authored by tool designers reported predictive validity findings around two times higher those of investigations reported by independent authors&rdquo;.</p>
+<p>Northpointe <a href="http://www.northpointeinc.com/files/downloads/FAQ_Document.pdf">claims</a> that the with the COMPAS tool &ldquo;AUCs ranged from .68 to .71 in the full sample&rdquo; for general recidivism, with an &ldquo;AUC 0.67 for violent recidivism&rdquo;. In reading these claims, it is important to consider there is <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0072484">some evidence of authorship bias</a> in model evaluation, to the extent that &ldquo;[&hellip;] studies authored by tool designers reported predictive validity findings around two times higher those of investigations reported by independent authors&rdquo;.</p>
 
 <p>Scores from the COMPAS tool go through several transformations before they end up in a decision maker&rsquo;s hands. The first output is a <code>raw score</code> from the model itself, which appears to be a normally distributed score. These raw scores are converted to a <code>decile score</code>, which I assume is based on the full range of scores. Finally, Northpointe also provides a mapping of decile scores to qualitative risk levels following this mapping:</p>
 
@@ -179,7 +179,7 @@ ga('send', 'pageview');
 
 <p>In evaluating model accuracy, it&rsquo;s relevant to look at the model accuracy of the information presented to the decision maker. That is, if a judicial official views receives a report with the qualitative risk level (High, Medium, Low) then we should be concerned with the accuracy of those model scores. The the accuracy of the <code>raw score</code> or the <code>decile score</code> doesn&rsquo;t really matter &ndash; the user of this tool never sees this underlying information, though the reported accuracy of the tool may depend on these pre-transformed measures.</p>
 
-<p>We&rsquo;ll evaluate model accuracy at each one of these transformations. Using the <a href="https://github.com/propublica/compas-analysis/" target="_blank">data</a> published by ProPublica that contains COMPAS scores and outcomes for individuals in Broward County, Florida.</p>
+<p>We&rsquo;ll evaluate model accuracy at each one of these transformations. Using the <a href="https://github.com/propublica/compas-analysis/">data</a> published by ProPublica that contains COMPAS scores and outcomes for individuals in Broward County, Florida.</p>
 
 <h2 id="outline">Outline</h2>
 
@@ -193,7 +193,7 @@ ga('send', 'pageview');
 
 <h2 id="1-data-processing-exploring">1. Data Processing &amp; Exploring</h2>
 
-<p>The final dataset ProPublica uses doesn&rsquo;t have the raw score, but they do provide the raw COMPAS data, which we will merge into the clean dataset. I couldn&rsquo;t find a clear ID or case number to merge on at a glance, so we&rsquo;re merging on <code>first name</code>, <code>last name</code>, and <code>compas screening date</code>. This merging scheme may lead to some discrepancies between the dataset ProPublica used for analysis, but should match most cases in general. In general, I follow <a href="https://github.com/propublica/compas-analysis/blob/master/Compas%20Analysis.ipynb" target="_blank">their process</a> of filtering observations based on data quality assumptions.</p>
+<p>The final dataset ProPublica uses doesn&rsquo;t have the raw score, but they do provide the raw COMPAS data, which we will merge into the clean dataset. I couldn&rsquo;t find a clear ID or case number to merge on at a glance, so we&rsquo;re merging on <code>first name</code>, <code>last name</code>, and <code>compas screening date</code>. This merging scheme may lead to some discrepancies between the dataset ProPublica used for analysis, but should match most cases in general. In general, I follow <a href="https://github.com/propublica/compas-analysis/blob/master/Compas%20Analysis.ipynb">their process</a> of filtering observations based on data quality assumptions.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
 <span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns; sns<span style="color:#f92672">.</span>set_context(<span style="color:#e6db74">&#39;notebook&#39;</span>, font_scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1.5</span>);
 <span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt; plt<span style="color:#f92672">.</span>style<span style="color:#f92672">.</span>use(<span style="color:#e6db74">&#39;ggplot&#39;</span>)
@@ -534,7 +534,7 @@ sns<span style="color:#f92672">.</span>plt<span style="color:#f92672">.</span>yl
 
 <h3 id="accuracy-of-compas-scores-by-transformation">Accuracy of COMPAS scores by transformation</h3>
 
-<p>For the COMPAS tool, the accuracy of the model decreases as the number of bins gets smaller. The raw scores have the highest ROC values, but not much higher than the decile scores. In Northpointe&rsquo;s rebuttal, they achieved AUC scores on the ProPublica sample of 0.69 for general recidivism and 0.68 for violent in evaluating the decile scores. (<a href="http://go.volarisgroup.com/rs/430-MBX-989/images/ProPublica_Commentary_Final_070616.pdf" target="_blank">source, p. 3</a>)</p>
+<p>For the COMPAS tool, the accuracy of the model decreases as the number of bins gets smaller. The raw scores have the highest ROC values, but not much higher than the decile scores. In Northpointe&rsquo;s rebuttal, they achieved AUC scores on the ProPublica sample of 0.69 for general recidivism and 0.68 for violent in evaluating the decile scores. (<a href="http://go.volarisgroup.com/rs/430-MBX-989/images/ProPublica_Commentary_Final_070616.pdf">source, p. 3</a>)</p>
 
 <h2 id="3-what-s-the-general-case">3. What&rsquo;s the general case?</h2>
 
@@ -680,7 +680,7 @@ sns<span style="color:#f92672">.</span>plt<span style="color:#f92672">.</span>ti
 <h2 id="helpful-resources">Helpful Resources</h2>
 
 <ul>
-<li>Tom Augspurger&rsquo;s <a href="https://tomaugspurger.github.io/method-chaining.html" target="_blank">post on method chaining</a> was instrumental in refactoring the data reading steps</li>
+<li>Tom Augspurger&rsquo;s <a href="https://tomaugspurger.github.io/method-chaining.html">post on method chaining</a> was instrumental in refactoring the data reading steps</li>
 </ul>
 
 </div>

@@ -164,7 +164,7 @@ ga('send', 'pageview');
 <p>To get started, we&rsquo;ll follow the benign pedagogical path of copying the Wikipedia definition:
 &gt;  The earth mover&rsquo;s distance (EMD) is a measure of the distance between two probability distributions over a region D. In mathematics, this is known as the Wasserstein metric. Informally, if the distributions are interpreted as two different ways of piling up a certain amount of dirt over the region D, the EMD is the minimum cost of turning one pile into the other; where the cost is assumed to be amount of dirt moved times the distance by which it is moved.</p>
 
-<h2 id="example-source-http-robotics-stanford-edu-scohen-research-emdg-emdg-html-emd">Example (<a href="http://robotics.stanford.edu/~scohen/research/emdg/emdg.html#emd" target="_blank">source</a>)</h2>
+<h2 id="example-source-http-robotics-stanford-edu-scohen-research-emdg-emdg-html-emd">Example (<a href="http://robotics.stanford.edu/~scohen/research/emdg/emdg.html#emd">source</a>)</h2>
 
 <p>In the picture below, imagine the <code>x</code> points are piles of dirt, and <code>y</code> are holes. The <code>u</code> and <code>w</code> values represent the &lsquo;mass&rsquo; (amount) of dirt in in a pile for <code>x</code> and negative amount needing to be filled for <code>y</code> points.</p>
 
@@ -178,11 +178,11 @@ ga('send', 'pageview');
 <p>What is the minimum cumulative cost to fill all the holes <code>y</code> with dirt from <code>x</code>?</p>
 </blockquote>
 
-<p>This minimum cumulative cost Earth Movers Distance. Calculating EMD boils down to a linear programming problem (a <a href="http://orms.pef.czu.cz/text/transProblem.html" target="_blank">transportation problem</a>) in order to find that cost. Several people smarter than me have figured out how to calculate this efficiently. Traditionally, Earth Movers Distance has <a href="http://ttic.uchicago.edu/~ssameer/Research/Papers/WEMD_CVPR08.pdf" target="_blank">high computational complexity</a>: <code>O(N3 * log N))</code>, but some other smart people have <a href="http://www.ariel.ac.il/sites/ofirpele/fastemd/code/" target="_blank">worked hard to reduce it</a>.</p>
+<p>This minimum cumulative cost Earth Movers Distance. Calculating EMD boils down to a linear programming problem (a <a href="http://orms.pef.czu.cz/text/transProblem.html">transportation problem</a>) in order to find that cost. Several people smarter than me have figured out how to calculate this efficiently. Traditionally, Earth Movers Distance has <a href="http://ttic.uchicago.edu/~ssameer/Research/Papers/WEMD_CVPR08.pdf">high computational complexity</a>: <code>O(N3 * log N))</code>, but some other smart people have <a href="http://www.ariel.ac.il/sites/ofirpele/fastemd/code/">worked hard to reduce it</a>.</p>
 
 <h2 id="word-mover-s-distance">Word Mover&rsquo;s Distance</h2>
 
-<p>Earth Movers Distance is pretty great on its own, but in 2015 Kusner et al. realized it could be <a href="http://proceedings.mlr.press/v37/kusnerb15.pdf" target="_blank">applied to word embeddings</a> (like those from word2vec) in order to calculate how semantically similar two pieces of text are. Following the idea of calculating EMD in two dimensions like we covered above, an example of comparing the distance between two sentences looks something like this:</p>
+<p>Earth Movers Distance is pretty great on its own, but in 2015 Kusner et al. realized it could be <a href="http://proceedings.mlr.press/v37/kusnerb15.pdf">applied to word embeddings</a> (like those from word2vec) in order to calculate how semantically similar two pieces of text are. Following the idea of calculating EMD in two dimensions like we covered above, an example of comparing the distance between two sentences looks something like this:</p>
 
 <p><img src="https://raw.githubusercontent.com/mkusner/wmd/master/fig1.png" alt="word movers distance" /></p>
 
@@ -231,7 +231,7 @@ ga('send', 'pageview');
 </ul></li>
 </ul>
 
-<p>We&rsquo;re going to attempt to find the EMD from the set of piles in the image in the introduction, which is taken from an introduction to EMD you can find <a href="http://robotics.stanford.edu/~scohen/research/emdg/emdg.html#emd" target="_blank">here</a>. Our solution is an approximation since I&rsquo;ve had to approximate the coordinate system based on the positioning.</p>
+<p>We&rsquo;re going to attempt to find the EMD from the set of piles in the image in the introduction, which is taken from an introduction to EMD you can find <a href="http://robotics.stanford.edu/~scohen/research/emdg/emdg.html#emd">here</a>. Our solution is an approximation since I&rsquo;ve had to approximate the coordinate system based on the positioning.</p>
 
 <h3 id="define-classes">Define Classes</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DirtPile</span>():
@@ -489,7 +489,7 @@ plt<span style="color:#f92672">.</span>plot([most_costly_from[<span style="color
 <li>Dirt Pile Location → A single word vector in a word embedding</li>
 </ul>
 
-<p>We have our two pile distributions (sentences) and masses (counts of words), and our locations will be provided by an existing word embedding. We&rsquo;ll be using the Google News word vectors. We&rsquo;re going to subset the full word embedding of 3 billion words to the 333,333 most common english words [<a href="http://norvig.com/ngrams/" target="_blank">ref</a>].</p>
+<p>We have our two pile distributions (sentences) and masses (counts of words), and our locations will be provided by an existing word embedding. We&rsquo;ll be using the Google News word vectors. We&rsquo;re going to subset the full word embedding of 3 billion words to the 333,333 most common english words [<a href="http://norvig.com/ngrams/">ref</a>].</p>
 
 <h3 id="building-intuition-through-visualization">Building Intuition through Visualization</h3>
 
@@ -886,14 +886,14 @@ np<span style="color:#f92672">.</span>isclose(w2v_emd, cost_df<span style="color
 
 <h3 id="python-implementations">Python Implementations</h3>
 
-<p>Both <a href="http://textacy.readthedocs.io/en/latest/api_reference.html#textacy.similarity.word_movers" target="_blank">textacy</a> and <a href="https://radimrehurek.com/gensim/models/keyedvectors.html#gensim.models.keyedvectors.KeyedVectors.wmdistance" target="_blank">gensim</a> have implementations of Word Movers Distance you can use. Gensim will require you to load (or build) a word embedding first, and I believe textacy will use the GloVe vectors from spaCy by default.</p>
+<p>Both <a href="http://textacy.readthedocs.io/en/latest/api_reference.html#textacy.similarity.word_movers">textacy</a> and <a href="https://radimrehurek.com/gensim/models/keyedvectors.html#gensim.models.keyedvectors.KeyedVectors.wmdistance">gensim</a> have implementations of Word Movers Distance you can use. Gensim will require you to load (or build) a word embedding first, and I believe textacy will use the GloVe vectors from spaCy by default.</p>
 
 <h3 id="related-resources">Related Resources</h3>
 
 <ul>
-<li><a href="https://markroxor.github.io/gensim/static/notebooks/WMD_tutorial.html" target="_blank">WMD Tutorial</a></li>
-<li><a href="http://vene.ro/blog/word-movers-distance-in-python.html" target="_blank">Word Movers Distance in Python</a></li>
-<li><a href="http://blog.fastforwardlabs.com/2017/05/30/Slack-Maestro-Helping-Users-Stay-on-Topic.html" target="_blank">Slack Maestro: Helping Users Stay on Topic</a></li>
+<li><a href="https://markroxor.github.io/gensim/static/notebooks/WMD_tutorial.html">WMD Tutorial</a></li>
+<li><a href="http://vene.ro/blog/word-movers-distance-in-python.html">Word Movers Distance in Python</a></li>
+<li><a href="http://blog.fastforwardlabs.com/2017/05/30/Slack-Maestro-Helping-Users-Stay-on-Topic.html">Slack Maestro: Helping Users Stay on Topic</a></li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"></code></pre></div>
 </div>
