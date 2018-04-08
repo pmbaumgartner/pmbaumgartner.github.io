@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Biclustering is a helpful clustering procedure that derives cluster membership for both rows and columns. Clustering rows and columns individually is fairly common. I view biclustering as an extension that allows me to ask: &ldquo;If these columns are clustered together, which rows (if any) point towards that clustering? Accordingly, if any rows are clustered together, which column values might tell me why they&rsquo;re clustered?&rdquo;
+I have found it helpful with:'>
+<meta name='theme-color' content='#297FD5'>
+
+<meta property='og:title' content='Biclustering (with Paul Revere) • '>
+<meta property='og:description' content='Biclustering is a helpful clustering procedure that derives cluster membership for both rows and columns. Clustering rows and columns individually is fairly common. I view biclustering as an extension that allows me to ask: &ldquo;If these columns are clustered together, which rows (if any) point towards that clustering? Accordingly, if any rows are clustered together, which column values might tell me why they&rsquo;re clustered?&rdquo;
+I have found it helpful with:'>
+<meta property='og:url' content='http://www.example.com/recipies/biclustering-with-paul-revere/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Recipies'><meta property='article:published_time' content='2017-03-29T00:00:00Z'/><meta property='article:modified_time' content='2017-03-29T00:00:00Z'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.38.1" />
+
+  <title>Biclustering (with Paul Revere) • </title>
+  <link rel='canonical' href='http://www.example.com/recipies/biclustering-with-paul-revere/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.b8f9eb89.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#297FD5;}
+</style>
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-72692144-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+
+<body class='page type-recipies has-sidebar'>
+
+  <div class='site'>
+
+    <div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/LAZERS.jpg'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+    Peter Baumgartner
+    </h2>
+    <div class='desc'>
+    Data Scientist
+    </div>
+  </header>
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div>
+
+    <div class='main'>
+
+      <nav id='main-menu' class='main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+  
+</svg>
+</span>
+  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+  
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='/'>Home</a>
+      </li><li class='item'>
+        <a href='/blog/'>Blog</a>
+      </li><li class='item'>
+        <a href='/recipies/'>Recipies</a>
+      </li><li class='item'>
+        <a href='/now/'>Now</a>
+      </li></ul>
+  </div>
+</nav>
+
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'></p><p class='desc site-desc'></p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Biclustering (with Paul Revere)</h1>
+      
+
+    </div>
+    
+<div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2017-03-29T00:00:00Z'>2017-03-29</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+8 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  
+
+<p>Biclustering is a helpful clustering procedure that derives cluster membership for both rows and columns. Clustering rows and columns individually is fairly common. I view biclustering as an extension that allows me to ask: &ldquo;If these columns are clustered together, which rows (if any) point towards that clustering? Accordingly, if any rows are clustered together, which column values might tell me why they&rsquo;re clustered?&rdquo;</p>
+
+<p>I have found it helpful with:</p>
+
+<ul>
+<li>Incidence Matrix / Cooccurence data (typically found before converting something into a graph/network structure)</li>
+<li>Text data (the <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.140.3011&amp;rep=rep1&amp;type=pdf" target="_blank">original paper</a> on coclustering does this)</li>
+</ul>
+
+<p>The example below performs coclustering on the awesome &ldquo;Paul Revere dataset&rdquo; originally analyzed in an <a href="https://kieranhealy.org/blog/archives/2013/06/09/using-metadata-to-find-paul-revere/" target="_blank">amazing blog post</a> by <a href="https://kieranhealy.org/" target="_blank">Kieran Healy</a>.</p>
+
+<h2 id="references">References:</h2>
+
+<blockquote>
+<p>Biclustering algorithms simultaneously cluster rows and columns of a data matrix. These clusters of rows and columns are known as biclusters. Each determines a submatrix of the original data matrix with some desired properties.</p>
+</blockquote>
+
+<p><a href="http://scikit-learn.org/stable/modules/biclustering.html#biclustering" target="_blank">sklearn - Biclustering</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> re
+
+<span style="color:#f92672">from</span> sklearn.datasets.twenty_newsgroups <span style="color:#f92672">import</span> fetch_20newsgroups
+<span style="color:#f92672">from</span> sklearn.feature_extraction.text <span style="color:#f92672">import</span> TfidfVectorizer
+<span style="color:#f92672">from</span> sklearn.cluster.bicluster <span style="color:#f92672">import</span> SpectralCoclustering
+
+<span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pylab <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">%</span>matplotlib inline</code></pre></div>
+<h2 id="data-import">Data Import</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;https://raw.githubusercontent.com/kjhealy/revere/master/data/PaulRevereAppD.csv&#39;</span>, index_col<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">data<span style="color:#f92672">.</span>head()</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>StAndrewsLodge</th>
+      <th>LoyalNine</th>
+      <th>NorthCaucus</th>
+      <th>LongRoomClub</th>
+      <th>TeaParty</th>
+      <th>BostonCommittee</th>
+      <th>LondonEnemies</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adams.John</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Adams.Samuel</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Allen.Dr</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Appleton.Nathaniel</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Ash.Gilbert</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">data<span style="color:#f92672">.</span>index <span style="color:#f92672">=</span> [i<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;.&#39;</span>, <span style="color:#e6db74">&#39;, &#39;</span>) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> data<span style="color:#f92672">.</span>index]</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nrows, ncolumns <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>shape
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;rows:&#34;</span>, nrows, <span style="color:#e6db74">&#34;columns:&#34;</span>, ncolumns)</code></pre></div>
+<pre><code>rows: 254 columns: 7
+</code></pre>
+
+<h2 id="fit-model">Fit Model</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cocluster <span style="color:#f92672">=</span> SpectralCoclustering(n_clusters<span style="color:#f92672">=</span><span style="color:#ae81ff">6</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">666</span>, svd_method<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;arpack&#39;</span>)
+cocluster<span style="color:#f92672">.</span>fit(data)</code></pre></div>
+<pre><code>SpectralCoclustering(init='k-means++', mini_batch=False, n_clusters=6,
+           n_init=10, n_jobs=1, n_svd_vecs=None, random_state=666,
+           svd_method='arpack')
+</code></pre>
+
+<h2 id="explore-results">Explore Results</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cluster_data <span style="color:#f92672">=</span> []
+<span style="color:#66d9ef">for</span> cluster <span style="color:#f92672">in</span> range(cocluster<span style="color:#f92672">.</span>n_clusters):
+    row_ix, col_ix <span style="color:#f92672">=</span> cocluster<span style="color:#f92672">.</span>get_indices(cluster)
+    data_subset <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>ix[row_ix, col_ix]
+    c_rows, c_cols <span style="color:#f92672">=</span> data_subset<span style="color:#f92672">.</span>shape
+    orgs <span style="color:#f92672">=</span> data_subset<span style="color:#f92672">.</span>columns
+    names <span style="color:#f92672">=</span> data_subset<span style="color:#f92672">.</span>index
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Cluster: &#34;</span>, cluster, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">Members:&#34;</span>, c_rows, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">Orgs:&#34;</span>, c_cols)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Orgs:   &#34;</span>, <span style="color:#e6db74">&#39;; &#39;</span><span style="color:#f92672">.</span>join([<span style="color:#e6db74">&#34;{}&#34;</span><span style="color:#f92672">.</span>format(org) <span style="color:#66d9ef">for</span> org <span style="color:#f92672">in</span> orgs]))
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Members:&#34;</span>, <span style="color:#e6db74">&#39;; &#39;</span><span style="color:#f92672">.</span>join([<span style="color:#e6db74">&#34;{}&#34;</span><span style="color:#f92672">.</span>format(name) <span style="color:#66d9ef">for</span> name <span style="color:#f92672">in</span> names]))
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;---&#34;</span>)
+    cluster <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;Cluster&#39;</span> : cluster, <span style="color:#e6db74">&#39;Members&#39;</span> : <span style="color:#e6db74">&#39;; &#39;</span><span style="color:#f92672">.</span>join([<span style="color:#e6db74">&#34;{}&#34;</span><span style="color:#f92672">.</span>format(name) <span style="color:#66d9ef">for</span> name <span style="color:#f92672">in</span> names]), <span style="color:#e6db74">&#39;Orgs&#39;</span> : <span style="color:#e6db74">&#39;; &#39;</span><span style="color:#f92672">.</span>join([<span style="color:#e6db74">&#34;{}&#34;</span><span style="color:#f92672">.</span>format(org) <span style="color:#66d9ef">for</span> org <span style="color:#f92672">in</span> orgs])}
+    cluster_data<span style="color:#f92672">.</span>append(cluster)</code></pre></div>
+<pre><code>Cluster:  0     Members: 68     Orgs: 3
+Orgs:    LongRoomClub; BostonCommittee; LondonEnemies
+Members: Adams, John; Adams, Samuel; Appleton, Nathaniel; Austin, Benjamin; Austin, Samuel; Baldwin, Cyrus; Boyer, Peter; Boynton, Richard; Brackett, Jos; Bradford, John; Brimmer, Herman; Brimmer, Martin; Broomfield, Henry; Brown, Enoch; Brown, John; Cheever, Ezekiel; Church, Benjamin; Cooper, William; Davis, Caleb; Davis, Edward; Davis, William; Dawes, Thomas; Dennie, William; Dexter, Samuel; Fleet, Thomas; Foster, Bos; Gill, Moses; Greenleaf, Joseph; Greenleaf, William; Greenough, Newn; Hancock, Eben; Hancock, John; Hill, Alexander; Hopkins, Caleb; Isaac, Pierce; Ivers, James; Jarvis, Charles; Johnston, Eben; Lambert, John; Mackay, William; Marshall, Thomas; Marson, John; Mason, Jonathan; Noyces, Nat; Otis, James; Parkman, Elias; Partridge, Sam; Phillips, Samuel; Phillips, William; Pierpont, Robert; Pitts, John; Pitts, Samuel; Powell, William; Prince, Job; Pulling, John; Quincy, Josiah; Roylson, Thomas; Ruddock, Abiel; Sweetser, John; Tyler, Royall; Vernon, Fortesque; Waldo, Benjamin; Wendell, Oliver; Whitwell, Samuel; Whitwell, William; Williams, Jonathan; Winslow, John; Winthrop, John
+---
+Cluster:  1     Members: 81     Orgs: 1
+Orgs:    TeaParty
+Members: Barnard, Samuel; Bolter, Thomas; Bradlee, David; Bradlee, Josiah; Bradlee, Nathaniel; Bradlee, Thomas; Bewer, James; Bruce, Stephen; Burton, Benjamin; Campbell, Nicholas; Clarke, Benjamin; Cochran, John; Colesworthy, Gilbert; Collier, Gershom; Crane, John; Davis, Robert; Dolbear, Edward; Eaton, Joseph; Eckley, Unknown; Etheridge, William; Fenno, Samuel; Foster, Samuel; Frothingham, Nathaniel; Gammell, John; Gore, Samuel; Greene, Nathaniel; Hammond, Samuel; Hendley, William; Hewes, George; Hicks, John; Hobbs, Samuel; Hooton, John; Howard, Samuel; Howe, Edward; Hunnewell, Jonathan; Hunnewell, Richard; Hunstable, Thomas; Hunt, Abraham; Ingersoll, Daniel; Kinnison, David; Lee, Joseph; Lincoln, Amos; Loring, Matthew; Machin, Thomas; MacKintosh, Capt; MacNeil, Archibald; May, John; Melville, Thomas; Moore, Thomas; Morse, Anthony; Mountford, Joseph; Newell, Eliphelet; Palmer, Joseph; Parker, Jonathan; Payson, Joseph; Peters, John; Pierce, William; Pitts, Lendall; Porter, Thomas; Prentiss, Henry; Prince, John; Purkitt, Henry; Randall, John; Roby, Joseph; Russell, John; Russell, William; Sessions, Robert; Shed, Joseph; Simpson, Benjamin; Slater, Peter; Spear, Thomas; Sprague, Samuel; Spurr, John; Starr, James; Stearns, Phineas; Stevens, Ebenezer; Wheeler, Josiah; Williams, Jeremiah; Williams, Thomas; Willis, Nathaniel; Wyeth, Joshua
+---
+Cluster:  2     Members: 46     Orgs: 1
+Orgs:    StAndrewsLodge
+Members: Ash, Gilbert; Bell, William; Blake, Increase; Bray, George; Brown, Hugh; Burbeck, Edward; Burbeck, William; Cailleteau, Edward; Callendar, Elisha; Chipman, Seth; Collins, Ezra; Deshon, Moses; Doyle, Peter; Ferrell, Ambrose; Flagg, Josiah; Gould, William; Graham, James; Gray, Wait; Ham, William; Hitchborn, Nathaniel; Hoffins, John; Inglish, Alexander; Jarvis, Edward; Jefferds, Unknown; Jenkins, John; Kerr, Walter; Lewis, Phillip; Marett, Phillip; Marlton, John; McAlpine, William; Milliken, Thomas; Moody, Samuel; Nicholls, Unknown; Obear, Israel; Palfrey, William; Phillips, John; Potter, Edward; Pulling, Richard; Seward, James; Sloper, Ambrose; Stanbridge, Henry; Tabor, Philip; Webb, Joseph; Webster, Thomas; Whitten, John; Wingfield, William
+---
+Cluster:  3     Members: 12     Orgs: 0
+Orgs:    
+Members: Bass, Henry; Chase, Thomas; Collson, Adam; Condy, JamesFoster; Cooper, Samuel; Eayres, Joseph; Grant, Moses; Molineux, William; Proctor, Edward; Story, Elisha; Swan, James; Young, Thomas
+---
+Cluster:  4     Members: 37     Orgs: 1
+Orgs:    NorthCaucus
+Members: Allen, Dr; Avery, John; Ballard, John; Barber, Nathaniel; Boit, John; Breck, William; Burt, Benjamin; Cazneau, Capt; Chadwell, Mr; Champney, Caleb; Chrysty, Thomas; Edes, Benjamin; Emmes, Samuel; Hickling, William; Hitchborn, Thomas; Holmes, Nathaniel; Hoskins, William; Johonnott, Gabriel; Kent, Benjamin; Kimball, Thomas; Lowell, John; Matchett, John; Merrit, John; Morton, Perez; Palms, Richard; Pearce, IsaacJun; Pearce, Isaac; Peck, Thomas; Sharp, Gibbens; Sigourney, John; Stoddard, Asa; Stoddard, Jonathan; Symmes, Eben; Symmes, John; Tileston, Thomas; Warren, Joseph; White, Samuel
+---
+Cluster:  5     Members: 10     Orgs: 1
+Orgs:    LoyalNine
+Members: Barrett, Samuel; Cleverly, Stephen; Crafts, Thomas; Field, Joseph; Peck, Samuel; Revere, Paul; Smith, John; Trott, George; Urann, Thomas; Welles, Henry
+---
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cluster_info <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(cluster_data)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cluster_info</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Cluster</th>
+      <th>Members</th>
+      <th>Orgs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>Adams, John; Adams, Samuel; Appleton, Nathanie...</td>
+      <td>LongRoomClub; BostonCommittee; LondonEnemies</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Barnard, Samuel; Bolter, Thomas; Bradlee, Davi...</td>
+      <td>TeaParty</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>Ash, Gilbert; Bell, William; Blake, Increase; ...</td>
+      <td>StAndrewsLodge</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>Bass, Henry; Chase, Thomas; Collson, Adam; Con...</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Allen, Dr; Avery, John; Ballard, John; Barber,...</td>
+      <td>NorthCaucus</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>Barrett, Samuel; Cleverly, Stephen; Crafts, Th...</td>
+      <td>LoyalNine</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="format-and-sort-dataframe-with-multiindex">Format and Sort DataFrame with MultiIndex</h2>
+
+<p>Since rows and columns now have hierarchical information with cluster membership, we can reindex the dataframe to take this into account and index easily on cluster. This should allow us to see the block cluster structure along the diagonal.</p>
+
+<p>This is adapted from an example in the <a href="http://scikit-learn.org/stable/auto_examples/bicluster/bicluster_newsgroups.html" target="_blank">scikit-learn docs</a> and takes advantage of using a <code>MultiIndex</code> in pandas. I also think it&rsquo;s a lot more readable (both code and output) than figuring out the indices with unlabeled numpy arrays.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">data_mi <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>copy()
+
+cocluster_rows <span style="color:#f92672">=</span> list(zip(cocluster<span style="color:#f92672">.</span>row_labels_, data<span style="color:#f92672">.</span>index))
+row_index <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>MultiIndex<span style="color:#f92672">.</span>from_tuples(cocluster_rows, names<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;cluster&#39;</span>, <span style="color:#e6db74">&#39;person&#39;</span>])
+data_mi<span style="color:#f92672">.</span>index <span style="color:#f92672">=</span> row_index
+data_mi <span style="color:#f92672">=</span> data_mi<span style="color:#f92672">.</span>sortlevel(axis<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+
+cocluster_columns <span style="color:#f92672">=</span> list(zip(cocluster<span style="color:#f92672">.</span>column_labels_, data<span style="color:#f92672">.</span>columns))
+col_index <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>MultiIndex<span style="color:#f92672">.</span>from_tuples(cocluster_columns, names<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;cluster&#39;</span>, <span style="color:#e6db74">&#39;org&#39;</span>])
+data_mi<span style="color:#f92672">.</span>columns <span style="color:#f92672">=</span> col_index
+data_mi <span style="color:#f92672">=</span> data_mi<span style="color:#f92672">.</span>sortlevel(axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">data_mi<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">10</span>)</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>cluster</th>
+      <th colspan="3" halign="left">0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>org</th>
+      <th>BostonCommittee</th>
+      <th>LondonEnemies</th>
+      <th>LongRoomClub</th>
+      <th>TeaParty</th>
+      <th>StAndrewsLodge</th>
+      <th>NorthCaucus</th>
+      <th>LoyalNine</th>
+    </tr>
+    <tr>
+      <th>cluster</th>
+      <th>person</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="10" valign="top">0</th>
+      <th>Adams, John</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Adams, Samuel</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Appleton, Nathaniel</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Austin, Benjamin</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Austin, Samuel</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Baldwin, Cyrus</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Boyer, Peter</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Boynton, Richard</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Brackett, Jos</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Bradford, John</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="verify-coclustering-structure">Verify Coclustering structure</h2>
+
+<p>&ldquo;The resulting bicluster structure is block-diagonal, since each row and each column belongs to exactly one bicluster.&rdquo; - <a href="http://scikit-learn.org/stable/modules/generated/sklearn.cluster.bicluster.SpectralCoclustering.html" target="_blank">sklearn SpectralCoclustering Docs</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>matshow(data_mi<span style="color:#f92672">.</span>values<span style="color:#f92672">.</span>T, cmap<span style="color:#f92672">=</span>plt<span style="color:#f92672">.</span>cm<span style="color:#f92672">.</span>Blues, aspect<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;auto&#39;</span>, origin<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lower&#39;</span>)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;row index&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;column index&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+<span style="color:#75715e"># I plotted the transpose so it doesn&#39;t give us a long image</span></code></pre></div>
+<p><img src="//images/CoClustering-Revere_18_0.png" alt="png" /></p>
+
+<h2 id="brief-analysis">Brief Analysis</h2>
+
+<p>Let&rsquo;s take a look and see where the actual Loyal Nine members ended up. The organization ended up in our <code>Cluster 5</code>, but how many members of that bicluster match?</p>
+
+<p>Loyal Nine <a href="https://books.google.com/books?id=iNgNCgAAQBAJ&amp;pg=PA26#v=onepage&amp;q&amp;f=false" target="_blank">members</a>:</p>
+
+<ul>
+<li>John Avery, a distiller and club secretary;</li>
+<li>John Smith and Stephen Cleverly, both braziers;</li>
+<li>Thomas Crafts, a printer;</li>
+<li>Benjamin Edes, who along with John Gill produced the important Boston Gazette;</li>
+<li>Thomas Chase, a distiller;</li>
+<li>Joseph Field, a ship&rsquo;s captain;</li>
+<li>George Trott, a jeweler;</li>
+<li>Henry Bass, a merchant related to Samuel Adams</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">loyal_nine <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;Avery, John&#39;</span>, <span style="color:#e6db74">&#39;Smith, John&#39;</span>, <span style="color:#e6db74">&#39;Cleverly, Stephen&#39;</span>, <span style="color:#e6db74">&#39;Crafts, Thomas&#39;</span>, <span style="color:#e6db74">&#39;Edes, Benjamin&#39;</span>, <span style="color:#e6db74">&#39;Chase, Thomas&#39;</span>,
+              <span style="color:#e6db74">&#39;Field, Joseph&#39;</span>, <span style="color:#e6db74">&#39;Trott, George&#39;</span>, <span style="color:#e6db74">&#39;Bass, Henry&#39;</span>]</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">data_mi[data_mi<span style="color:#f92672">.</span>index<span style="color:#f92672">.</span>get_level_values(<span style="color:#e6db74">&#39;person&#39;</span>)<span style="color:#f92672">.</span>isin(loyal_nine)]</code></pre></div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>cluster</th>
+      <th colspan="3" halign="left">0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>org</th>
+      <th>BostonCommittee</th>
+      <th>LondonEnemies</th>
+      <th>LongRoomClub</th>
+      <th>TeaParty</th>
+      <th>StAndrewsLodge</th>
+      <th>NorthCaucus</th>
+      <th>LoyalNine</th>
+    </tr>
+    <tr>
+      <th>cluster</th>
+      <th>person</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">3</th>
+      <th>Bass, Henry</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Chase, Thomas</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">4</th>
+      <th>Avery, John</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Edes, Benjamin</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">5</th>
+      <th>Cleverly, Stephen</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Crafts, Thomas</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Field, Joseph</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Smith, John</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Trott, George</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>In <code>Cluster 5</code> we recovered all individuals who were <em>exclusively</em> members of the Loyal Nine, plus Thomas Crafts. <code>Cluster 4</code> pulled two Loyal Nine members also part of the North Caucus and London Enemies, and <code>Cluster 3</code> holds members that were additionally part of the North Cacus, Tea Party, and London Enemies each. Also note Cluster 3 contains no organizations &ndash; it&rsquo;s members are part of several organizations.</p>
+
+<h2 id="export-to-excel">Export to Excel</h2>
+
+<p>It&rsquo;s helpful to export this to Excel because the MultiIndex formats nicely into merged cells and retains the hierarchical indexing structure.</p>
+
+<p>The data is on the <code>data</code> sheet, and cluster details are on the <code>clusters</code> sheet.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">data_sheets <span style="color:#f92672">=</span> [(data_mi, <span style="color:#e6db74">&#39;data&#39;</span>),
+               (cluster_info, <span style="color:#e6db74">&#39;clusters&#39;</span>)]
+
+filename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;bicluster.xlsx&#39;</span>
+writer <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>ExcelWriter(filename, engine<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;xlsxwriter&#39;</span>)
+<span style="color:#66d9ef">for</span> data <span style="color:#f92672">in</span> data_sheets:
+    data[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>to_excel(writer, sheet_name<span style="color:#f92672">=</span>data[<span style="color:#ae81ff">1</span>])
+writer<span style="color:#f92672">.</span>save()</code></pre></div>
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'>
+  
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/recipies/tsne-to-bokeh/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Dimension Reduction with TSNE and Bokeh Scatterplot</a>
+    </div><div class='next-entry sep-before'>
+      <a href='/recipies/colored-roc-curves/'>
+        <span class='screen-reader-text'>Next post: </span>Colored ROC Curves<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'>
+          
+          <div class='copyright'>
+  <p></p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__public_path__='\/assets\/js\/'</script>
+
+<script src='/assets/js/main.4d3afaaf.js'></script><script src='/js/custom.js'></script>
+</body>
+
+</html>
+

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='The Receiver Operating Characteristic (ROC) curve is helpful in evaluating model performance, especially since Area Under the Curve (AUC ROC) has a several friendly interpretations. I use ROC curves in evaluating models and have to explain the output to non-technical folks. I was reading through Machine Learning: The Art and Science of Algorithms that Make Sense of Data and stumbled upon this nice visual and interpretation of ROC (tied to AUC):'>
+<meta name='theme-color' content='#297FD5'>
+
+<meta property='og:title' content='Colored ROC Curves • '>
+<meta property='og:description' content='The Receiver Operating Characteristic (ROC) curve is helpful in evaluating model performance, especially since Area Under the Curve (AUC ROC) has a several friendly interpretations. I use ROC curves in evaluating models and have to explain the output to non-technical folks. I was reading through Machine Learning: The Art and Science of Algorithms that Make Sense of Data and stumbled upon this nice visual and interpretation of ROC (tied to AUC):'>
+<meta property='og:url' content='http://www.example.com/recipies/colored-roc-curves/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Recipies'><meta property='article:published_time' content='2017-04-04T00:00:00Z'/><meta property='article:modified_time' content='2017-04-04T00:00:00Z'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.38.1" />
+
+  <title>Colored ROC Curves • </title>
+  <link rel='canonical' href='http://www.example.com/recipies/colored-roc-curves/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.b8f9eb89.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#297FD5;}
+</style>
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-72692144-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+
+<body class='page type-recipies has-sidebar'>
+
+  <div class='site'>
+
+    <div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/LAZERS.jpg'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+    Peter Baumgartner
+    </h2>
+    <div class='desc'>
+    Data Scientist
+    </div>
+  </header>
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div>
+
+    <div class='main'>
+
+      <nav id='main-menu' class='main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+  
+</svg>
+</span>
+  <span class='close'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+  
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='/'>Home</a>
+      </li><li class='item'>
+        <a href='/blog/'>Blog</a>
+      </li><li class='item'>
+        <a href='/recipies/'>Recipies</a>
+      </li><li class='item'>
+        <a href='/now/'>Now</a>
+      </li></ul>
+  </div>
+</nav>
+
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'></p><p class='desc site-desc'></p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Colored ROC Curves</h1>
+      
+
+    </div>
+    
+<div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2017-04-04T00:00:00Z'>2017-04-04</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+3 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  
+
+<p>The Receiver Operating Characteristic (ROC) curve is helpful in evaluating model performance, especially since Area Under the Curve (AUC ROC) has a several friendly interpretations. I use ROC curves in evaluating models and have to explain the output to non-technical folks. I was reading through <a href="http://a.co/dnKG3eO" target="_blank">Machine Learning: The Art and Science of Algorithms that Make Sense of Data</a> and stumbled upon this nice visual and interpretation of ROC (tied to AUC):</p>
+
+<p><img src="//images/coloredROCsm.png" alt="png" /></p>
+
+<ul>
+<li>Flach, P. (2012). Machine Learning: The Art and Science of Algorithms that Make Sense of Data. Cambridge University Press.</li>
+</ul>
+
+<p>The interpretation that each cell is a pair of true and false outcomes and their scores doesn&rsquo;t always map to reality &ndash; usually you have more than 100 pairs and in imbalanced dataset &ndash; but in general it helps me imagine model performance and explain to someone what the curve means.</p>
+
+<h2 id="workflow">Workflow</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+
+<span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> load_digits
+<span style="color:#f92672">from</span> sklearn.tree <span style="color:#f92672">import</span> DecisionTreeClassifier
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> roc_curve, auc
+<span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+
+<span style="color:#f92672">%</span>matplotlib inline</code></pre></div>
+<h2 id="load-data">Load Data</h2>
+
+<p>From the digits dataset we&rsquo;ll try to predict if a digit is <code>4</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">digits <span style="color:#f92672">=</span> load_digits()
+X <span style="color:#f92672">=</span> digits<span style="color:#f92672">.</span>data
+y <span style="color:#f92672">=</span> digits<span style="color:#f92672">.</span>target
+
+y <span style="color:#f92672">=</span> y <span style="color:#f92672">==</span> <span style="color:#ae81ff">4</span></code></pre></div>
+<h2 id="build-model">Build Model</h2>
+
+<p>We&rsquo;re making a purposefully bad model so the ROC curve is more interesting. Then building the ROC curve from predictions on a test set.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">dt <span style="color:#f92672">=</span> DecisionTreeClassifier(max_depth<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)
+
+X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(X, y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.3</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">666</span>)
+
+probas_ <span style="color:#f92672">=</span> dt<span style="color:#f92672">.</span>fit(X_train, y_train)<span style="color:#f92672">.</span>predict_proba(X_test)
+
+fpr, tpr, thresholds <span style="color:#f92672">=</span> roc_curve(y_test, probas_[:, <span style="color:#ae81ff">1</span>])
+roc_auc <span style="color:#f92672">=</span> auc(fpr, tpr)</code></pre></div>
+<h2 id="build-coloring-matrix">Build Coloring Matrix</h2>
+
+<p>We&rsquo;ll create a <code>100x100</code> matrix and color each chunk of cells according to the coordinates given by <code>FPR</code> and <code>TPR</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">coordlist <span style="color:#f92672">=</span> list(zip(((fpr <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>)<span style="color:#f92672">.</span>astype(int)), ((tpr <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>)<span style="color:#f92672">.</span>astype(int))))
+
+roc_array <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros((<span style="color:#ae81ff">100</span>,<span style="color:#ae81ff">100</span>))
+
+<span style="color:#66d9ef">for</span> i, coords <span style="color:#f92672">in</span> enumerate(coordlist):
+    <span style="color:#66d9ef">if</span> i <span style="color:#f92672">==</span> len(coordlist) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>:
+        <span style="color:#66d9ef">continue</span>
+    <span style="color:#66d9ef">else</span>:
+        <span style="color:#75715e"># orange</span>
+        roc_array[coords[<span style="color:#ae81ff">0</span>]:coordlist[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>], coords[<span style="color:#ae81ff">1</span>]:coordlist[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>]] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#75715e"># red</span>
+        roc_array[coords[<span style="color:#ae81ff">0</span>]:coordlist[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>], coordlist[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>]:<span style="color:#ae81ff">100</span>] <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+        <span style="color:#75715e"># green</span>
+        roc_array[coords[<span style="color:#ae81ff">0</span>]:<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">0</span>:coords[<span style="color:#ae81ff">1</span>]] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span></code></pre></div>
+<h2 id="plot-colored-matrix-roc-curve">Plot Colored Matrix &amp; ROC Curve</h2>
+
+<p>There is still a small issue of the colors not exactly lining up with the gridlines.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">8</span>))
+
+<span style="color:#75715e"># ROC Curve</span>
+plt<span style="color:#f92672">.</span>plot((fpr <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>)<span style="color:#f92672">.</span>astype(int), (tpr <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>)<span style="color:#f92672">.</span>astype(int),
+         lw<span style="color:#f92672">=</span><span style="color:#ae81ff">1.5</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;--&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;navy&#39;</span>,
+         label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ROC (AUC = </span><span style="color:#e6db74">%0.2f</span><span style="color:#e6db74">)&#39;</span> <span style="color:#f92672">%</span> (roc_auc))
+
+<span style="color:#75715e"># Dummy Model</span>
+plt<span style="color:#f92672">.</span>plot([<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">100.0</span>], [<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">100.0</span>],
+         linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;k&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.75</span>,
+         label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Baseline&#39;</span>)
+
+<span style="color:#75715e"># ROC Color Matrix</span>
+plt<span style="color:#f92672">.</span>imshow(roc_array<span style="color:#f92672">.</span>T, 
+           cmap<span style="color:#f92672">=</span>plt<span style="color:#f92672">.</span>cm<span style="color:#f92672">.</span>RdYlGn, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.9</span>, origin<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lower&#39;</span>,
+           aspect<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;auto&#39;</span>, interpolation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;nearest&#39;</span>, extent<span style="color:#f92672">=</span>[<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">100.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">100.0</span>])
+plt<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lower right&#34;</span>)
+
+<span style="color:#75715e"># adding the lines to the chart automatically extends the axis by (-20, -20)</span>
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>axes[<span style="color:#ae81ff">0</span>]
+ax<span style="color:#f92672">.</span>set_xlim([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">100</span>])
+ax<span style="color:#f92672">.</span>set_ylim([<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">100</span>])
+
+<span style="color:#75715e"># axis labels</span>
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;Negatives sorted on decreasing score&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;Positives sorted on decreasing score&#39;</span>)
+
+<span style="color:#75715e"># minor ticks each unit</span>
+minor_ticks <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">1</span>)
+ax<span style="color:#f92672">.</span>set_xticks(minor_ticks, minor<span style="color:#f92672">=</span>True)
+ax<span style="color:#f92672">.</span>set_yticks(minor_ticks, minor<span style="color:#f92672">=</span>True)
+ax<span style="color:#f92672">.</span>grid(which<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;minor&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;-&#39;</span>)
+
+<span style="color:#75715e"># tight_layout for figures sometimes getting cutoff</span>
+plt<span style="color:#f92672">.</span>tight_layout()
+plt<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#39;roc_colored.png&#39;</span>)</code></pre></div>
+<p><img src="//images/ColoredROCCurves_10_0.png" alt="png" /></p>
+
+<h2 id="relevant-matplotlib-stackoverflow-posts">Relevant matplotlib StackOverflow Posts</h2>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/12324176/matplotlib-imshow-offset-to-match-axis" target="_blank">matching axis in imshow</a></li>
+<li><a href="http://stackoverflow.com/questions/3777861/setting-y-axis-limit-in-matplotlib" target="_blank">limiting y-axis</a></li>
+<li><a href="http://stackoverflow.com/questions/24943991/matplotlib-change-grid-interval-and-specify-tick-labels" target="_blank">specifying minor axis grid aesthetics</a></li>
+</ul>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'>
+  
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/recipies/biclustering-with-paul-revere/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Biclustering (with Paul Revere)</a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'>
+          
+          <div class='copyright'>
+  <p></p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__public_path__='\/assets\/js\/'</script>
+
+<script src='/assets/js/main.4d3afaaf.js'></script><script src='/js/custom.js'></script>
+</body>
+
+</html>
+
