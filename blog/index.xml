@@ -46,7 +46,7 @@ To get started, we&amp;rsquo;ll follow the benign pedagogical path of copying th
       <pubDate>Fri, 17 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://pmbaumgartner.github.io/blog/jupyter-notebooks-for-pelican/</guid>
-      <description>Switching static site generators is a great way to kill a few hours on the weekend. I was previously using Jekyll because it works seamlessly with Github Pages, but I&amp;rsquo;m a python person so I figured I&amp;rsquo;d learn something new and move everything over to Pelican. I had also wanted an organized way to publicly store notebooks, code snippets, and workflows I was using regularly. My current storage system was randomly distributing them among various local folders, my employer&amp;rsquo;s gitlab instance, and Slack.</description>
+      <description>Note (2018-04-09): I no longer use Pelican as the engine to build my blog, so you want be able to see parts of this workflow in this blog&amp;rsquo;s repository. The insipiration for ideas in this post is captured in this notebook from Chris Albon. Switching static site generators is a great way to kill a few hours on the weekend. I was previously using Jekyll because it works seamlessly with Github Pages, but I&amp;rsquo;m a python person so I figured I&amp;rsquo;d learn something new and move everything over to Pelican.</description>
     </item>
     
     <item>
@@ -64,8 +64,7 @@ To get started, we&amp;rsquo;ll follow the benign pedagogical path of copying th
       <pubDate>Mon, 18 Jan 2016 00:00:00 +0000</pubDate>
       
       <guid>https://pmbaumgartner.github.io/blog/slack-commands-with-python-and-flask/</guid>
-      <description>Part 1: Setting Up Our Workflow and a Simple Application A few weekends ago my pet project was to set up a drive time slash command in Slack. Searching through our organization&amp;rsquo;s Slack conversation history, on top of overhearing several conversations, it seems like traffic is both a source of anguish and a favorite topic for smalltalk in our office.
-With that in mind, I set out to create a Slash Command for our Slack team.</description>
+      <description>Note (2018-04-09): Slack&#39;s API has changed since I wrote this article. I also never wrote a part 2. If you want an up to date tutorial this blog from DigitalOcean is good. Part 1: Setting Up Our Workflow and a Simple Application A few weekends ago my pet project was to set up a drive time slash command in Slack. Searching through our organization&amp;rsquo;s Slack conversation history, on top of overhearing several conversations, it seems like traffic is both a source of anguish and a favorite topic for smalltalk in our office.</description>
     </item>
     
   </channel>
