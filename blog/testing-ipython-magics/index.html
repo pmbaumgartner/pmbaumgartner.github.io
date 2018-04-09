@@ -5,20 +5,22 @@
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='TL;DR If you want to test ipython magics you can do the following:
- Import the global ipython app for test running with from IPython.testing.globalipapp import get_ipython Get the global ipython app with ip = get_ipython() Load your magic with ip.magic(&#39;load_ext your_magic_name&#39;) Run your magic with ip.run_line_magic(&#39;your_magic_functions&#39;, &#39;your_magic_arguments&#39;) (Optional) Access results of your magic with ip.user_ns (ipython user namespace).  An example test with pytest might look like this:'>
+ Import the global ipython app with from IPython.testing.globalipapp import get_ipython Crete an object with the global ipython app with ip = get_ipython() Load your magic with ip.magic(&#39;load_ext your_magic_name&#39;) Run your magic with ip.run_line_magic(&#39;your_magic_function&#39;, &#39;your_magic_arguments&#39;) (Optional) Access results of your magic with ip.user_ns (ipython user namespace).  An example test using pytest looks like this:
+import pytest from IPython.'>
 <meta name='theme-color' content='#297FD5'>
 
-<meta property='og:title' content='How to Test IPython Magic • '>
+<meta property='og:title' content='How to Test IPython Magic • Peter Baumgartner'>
 <meta property='og:description' content='TL;DR If you want to test ipython magics you can do the following:
- Import the global ipython app for test running with from IPython.testing.globalipapp import get_ipython Get the global ipython app with ip = get_ipython() Load your magic with ip.magic(&#39;load_ext your_magic_name&#39;) Run your magic with ip.run_line_magic(&#39;your_magic_functions&#39;, &#39;your_magic_arguments&#39;) (Optional) Access results of your magic with ip.user_ns (ipython user namespace).  An example test with pytest might look like this:'>
-<meta property='og:url' content='http://www.example.com/blog/testing-ipython-magics/'>
-<meta property='og:site_name' content=''>
+ Import the global ipython app with from IPython.testing.globalipapp import get_ipython Crete an object with the global ipython app with ip = get_ipython() Load your magic with ip.magic(&#39;load_ext your_magic_name&#39;) Run your magic with ip.run_line_magic(&#39;your_magic_function&#39;, &#39;your_magic_arguments&#39;) (Optional) Access results of your magic with ip.user_ns (ipython user namespace).  An example test using pytest looks like this:
+import pytest from IPython.'>
+<meta property='og:url' content='https://pmbaumgartner.github.io/blog/testing-ipython-magics/'>
+<meta property='og:site_name' content='Peter Baumgartner'>
 <meta property='og:type' content='article'><meta property='article:section' content='Blog'><meta property='article:published_time' content='2018-02-16T00:00:00Z'/><meta property='article:modified_time' content='2018-02-16T00:00:00Z'/><meta name='twitter:card' content='summary'>
 
 <meta name="generator" content="Hugo 0.38.1" />
 
-  <title>How to Test IPython Magic • </title>
-  <link rel='canonical' href='http://www.example.com/blog/testing-ipython-magics/'>
+  <title>How to Test IPython Magic • Peter Baumgartner</title>
+  <link rel='canonical' href='https://pmbaumgartner.github.io/blog/testing-ipython-magics/'>
   
   
   <link rel='icon' href='/favicon.ico'>
@@ -105,7 +107,7 @@ ga('send', 'pageview');
 
       <header id='header' class='header site-header'>
         <div class='container sep-after'>
-          <div class='header-info'><p class='site-title title'></p><p class='desc site-desc'></p>
+          <div class='header-info'><p class='site-title title'>Peter Baumgartner</p><p class='desc site-desc'></p>
           </div>
         </div>
       </header>
@@ -164,28 +166,28 @@ ga('send', 'pageview');
 <p>If you want to test <code>ipython magics</code> you can do the following:</p>
 
 <ol>
-<li>Import the global ipython app for test running with <code>from IPython.testing.globalipapp import get_ipython</code></li>
-<li>Get the global ipython app with <code>ip = get_ipython()</code></li>
+<li>Import the global ipython app with <code>from IPython.testing.globalipapp import get_ipython</code></li>
+<li>Crete an object with the global ipython app with <code>ip = get_ipython()</code></li>
 <li>Load your magic with <code>ip.magic('load_ext your_magic_name')</code></li>
-<li>Run your magic with <code>ip.run_line_magic('your_magic_functions', 'your_magic_arguments')</code></li>
+<li>Run your magic with <code>ip.run_line_magic('your_magic_function', 'your_magic_arguments')</code></li>
 <li>(Optional) Access results of your magic with <code>ip.user_ns</code> (ipython user namespace).</li>
 </ol>
 
-<p>An example test with pytest might look like this:</p>
+<p>An example test using pytest looks like this:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pytest
 <span style="color:#f92672">from</span> IPython.testing.globalipapp <span style="color:#f92672">import</span> get_ipython
 
 ip <span style="color:#f92672">=</span> get_ipython()
 ip<span style="color:#f92672">.</span>magic(<span style="color:#e6db74">&#39;load_ext excelify&#39;</span>)
 
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_nonexistant_object</span>():
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_nonexistent_object</span>():
     <span style="color:#66d9ef">with</span> pytest<span style="color:#f92672">.</span>raises(<span style="color:#a6e22e">NameError</span>):
-        ip<span style="color:#f92672">.</span>run_line_magic(<span style="color:#e6db74">&#39;excel&#39;</span>, <span style="color:#e6db74">&#39;nonexistantobject&#39;</span>)</code></pre></div>
+        ip<span style="color:#f92672">.</span>run_line_magic(<span style="color:#e6db74">&#39;excel&#39;</span>, <span style="color:#e6db74">&#39;nonexistentobject&#39;</span>)</code></pre></div>
 <h2 id="more-details">More Details</h2>
 
 <h3 id="background">Background</h3>
 
-<p>IPython Magics are a nice way to apply command-line like behavior from within an ipython kernel or jupyter notebook. Several magics come built-in (<code>%%time</code> is my favorite), and it&rsquo;s also possible to write your own magics to help you do things.</p>
+<p>IPython Magics are a nice way to apply command-line like behavior from within an ipython kernel or jupyter notebook. Several magics come built-in (<code>%%time</code> is my favorite), and it&rsquo;s also possible to write your own magics to help with common tasks.</p>
 
 <p>I ventured into the business of writing a custom magic by creating one that helped export pandas objects into Excel files. The idea emerged as I was running through a notebook where I needed to document a bunch of intermediate data frames, and rather than save them until the end of the notebook and loop through them to export, I figured a magic might be a nice way to handle this export within a cell.</p>
 
@@ -194,8 +196,6 @@ ip<span style="color:#f92672">.</span>magic(<span style="color:#e6db74">&#39;loa
 <p>Luckily, ipython itself is well tested and they provide access to a shell object that you can send commands to. However, the documentation around how to use this to actually write tests is patchy. I pieced together my understanding from going through the tests for the <a href="https://bitbucket.org/rpy2/rpy2/src/d5d60e9a0f684c27015fa29c26bbb7fd75863bc2/rpy/ipython/tests/test_rmagic.py?at=default&amp;fileviewer=file-view-default">standard magics</a> as well as the tests for the <a href="https://bitbucket.org/rpy2/rpy2/src/d5d60e9a0f684c27015fa29c26bbb7fd75863bc2/rpy/ipython/tests/test_rmagic.py?at=default&amp;fileviewer=file-view-default">rpy2 magics</a>.</p>
 
 <h3 id="example-detail">Example Detail</h3>
-
-<p>There are three important lines (after import) in the example code above that will allow you to test ipython magics.</p>
 
 <p>First, we use the <code>get_ipython</code> method to get a global ipython object. If you actually run this first line in a standard python shell, you&rsquo;ll see something interesting:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">from</span> IPython.testing.globalipapp <span style="color:#f92672">import</span> get_ipython
@@ -215,7 +215,7 @@ In :</code></pre></div>
 <li><code>magic(magic_line)</code></li>
 </ul>
 
-<p>As an aside, if you want to run a magic that doesn&rsquo;t take any arguments, you&rsquo;ll need to pass an empty string for <code>magic_args</code> in the methods above (rather than leave the argument empty)</p>
+<p><strong>Potential Gotcha:</strong> If you want to run a magic that doesn&rsquo;t take any arguments, you&rsquo;ll need to pass an empty string for <code>magic_args</code> in the methods above (rather than leave the argument empty or <code>None</code>)</p>
 
 </div>
 

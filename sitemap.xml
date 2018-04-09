@@ -3,96 +3,96 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://www.example.com/</loc>
+    <loc>https://pmbaumgartner.github.io/</loc>
     <lastmod>2018-02-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/blog/</loc>
+    <loc>https://pmbaumgartner.github.io/blog/</loc>
     <lastmod>2018-02-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/notebooks/</loc>
+    <loc>https://pmbaumgartner.github.io/notebooks/</loc>
     <lastmod>2017-06-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/now/</loc>
+    <loc>https://pmbaumgartner.github.io/now/</loc>
   </url>
   
   <url>
-    <loc>http://www.example.com/blog/testing-ipython-magics/</loc>
+    <loc>https://pmbaumgartner.github.io/blog/testing-ipython-magics/</loc>
     <lastmod>2018-02-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/blog/word-movers-distance-exploration/</loc>
+    <loc>https://pmbaumgartner.github.io/blog/word-movers-distance-exploration/</loc>
     <lastmod>2017-06-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/notebooks/word-movers-distance-exploration/</loc>
+    <loc>https://pmbaumgartner.github.io/notebooks/word-movers-distance-exploration/</loc>
     <lastmod>2017-06-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/blog/output-transformations-roc-impact/</loc>
+    <loc>https://pmbaumgartner.github.io/blog/output-transformations-roc-impact/</loc>
     <lastmod>2017-05-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/notebooks/output-transformations-roc-impact/</loc>
+    <loc>https://pmbaumgartner.github.io/notebooks/output-transformations-roc-impact/</loc>
     <lastmod>2017-05-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/notebooks/colored-roc-curves/</loc>
+    <loc>https://pmbaumgartner.github.io/notebooks/colored-roc-curves/</loc>
     <lastmod>2017-04-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/notebooks/biclustering-with-paul-revere/</loc>
+    <loc>https://pmbaumgartner.github.io/notebooks/biclustering-with-paul-revere/</loc>
     <lastmod>2017-03-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/notebooks/tsne-to-bokeh/</loc>
+    <loc>https://pmbaumgartner.github.io/notebooks/tsne-to-bokeh/</loc>
     <lastmod>2017-03-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/blog/jupyter-notebooks-for-pelican/</loc>
+    <loc>https://pmbaumgartner.github.io/blog/jupyter-notebooks-for-pelican/</loc>
     <lastmod>2017-03-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/blog/pydata-carolinas-recap/</loc>
+    <loc>https://pmbaumgartner.github.io/blog/pydata-carolinas-recap/</loc>
     <lastmod>2016-09-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/blog/slack-commands-with-python-and-flask/</loc>
+    <loc>https://pmbaumgartner.github.io/blog/slack-commands-with-python-and-flask/</loc>
     <lastmod>2016-01-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.example.com/authors/</loc>
+    <loc>https://pmbaumgartner.github.io/authors/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.example.com/categories/</loc>
+    <loc>https://pmbaumgartner.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.example.com/series/</loc>
+    <loc>https://pmbaumgartner.github.io/series/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.example.com/tags/</loc>
+    <loc>https://pmbaumgartner.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   

@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home on </title>
-    <link>http://www.example.com/</link>
-    <description>Recent content in Home on </description>
+    <title>Home on Peter Baumgartner</title>
+    <link>https://pmbaumgartner.github.io/</link>
+    <description>Recent content in Home on Peter Baumgartner</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 16 Feb 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://www.example.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pmbaumgartner.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to Test IPython Magic</title>
-      <link>http://www.example.com/blog/testing-ipython-magics/</link>
+      <link>https://pmbaumgartner.github.io/blog/testing-ipython-magics/</link>
       <pubDate>Fri, 16 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/blog/testing-ipython-magics/</guid>
+      <guid>https://pmbaumgartner.github.io/blog/testing-ipython-magics/</guid>
       <description>TL;DR If you want to test ipython magics you can do the following:
- Import the global ipython app for test running with from IPython.testing.globalipapp import get_ipython Get the global ipython app with ip = get_ipython() Load your magic with ip.magic(&#39;load_ext your_magic_name&#39;) Run your magic with ip.run_line_magic(&#39;your_magic_functions&#39;, &#39;your_magic_arguments&#39;) (Optional) Access results of your magic with ip.user_ns (ipython user namespace).  An example test with pytest might look like this:</description>
+ Import the global ipython app with from IPython.testing.globalipapp import get_ipython Crete an object with the global ipython app with ip = get_ipython() Load your magic with ip.magic(&#39;load_ext your_magic_name&#39;) Run your magic with ip.run_line_magic(&#39;your_magic_function&#39;, &#39;your_magic_arguments&#39;) (Optional) Access results of your magic with ip.user_ns (ipython user namespace).  An example test using pytest looks like this:
+import pytest from IPython.</description>
     </item>
     
     <item>
       <title>An Exploration in Earth &amp; Word Movers Distance</title>
-      <link>http://www.example.com/blog/word-movers-distance-exploration/</link>
+      <link>https://pmbaumgartner.github.io/blog/word-movers-distance-exploration/</link>
       <pubDate>Sun, 18 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/blog/word-movers-distance-exploration/</guid>
+      <guid>https://pmbaumgartner.github.io/blog/word-movers-distance-exploration/</guid>
       <description>This post will be an exploration into Earth Mover&amp;rsquo;s Distance as well as its application to NLP problems through Word Movers Distance.
 To get started, we&amp;rsquo;ll follow the benign pedagogical path of copying the Wikipedia definition: &amp;gt; The earth mover&amp;rsquo;s distance (EMD) is a measure of the distance between two probability distributions over a region D. In mathematics, this is known as the Wasserstein metric. Informally, if the distributions are interpreted as two different ways of piling up a certain amount of dirt over the region D, the EMD is the minimum cost of turning one pile into the other; where the cost is assumed to be amount of dirt moved times the distance by which it is moved.</description>
     </item>
     
     <item>
       <title>An Exploration in Earth &amp; Word Movers Distance</title>
-      <link>http://www.example.com/notebooks/word-movers-distance-exploration/</link>
+      <link>https://pmbaumgartner.github.io/notebooks/word-movers-distance-exploration/</link>
       <pubDate>Sun, 18 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/notebooks/word-movers-distance-exploration/</guid>
+      <guid>https://pmbaumgartner.github.io/notebooks/word-movers-distance-exploration/</guid>
       <description>Links Link to Notebook
 
 What&amp;rsquo;s in this notebook? This is the notebook behind my blog post An Exploration in Earth &amp;amp; Word Movers Distance. It&amp;rsquo;s an exploratin into Earth/Word Movers Distance algorithm that includes a there&amp;rsquo;s a lot of great matplotlib plots and some pandas-fu.</description>
@@ -43,19 +44,19 @@ What&amp;rsquo;s in this notebook? This is the notebook behind my blog post An E
     
     <item>
       <title>The Impact of Model Output Transformations on ROC</title>
-      <link>http://www.example.com/blog/output-transformations-roc-impact/</link>
+      <link>https://pmbaumgartner.github.io/blog/output-transformations-roc-impact/</link>
       <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/blog/output-transformations-roc-impact/</guid>
+      <guid>https://pmbaumgartner.github.io/blog/output-transformations-roc-impact/</guid>
       <description>Risk Assessment tools are currently used to assist in decision-making at several points in the criminal justice system. These tools take in some data about an individual and to provide a &amp;lsquo;risk score&amp;rsquo; for an individual that&amp;rsquo;s reflective of their likelihood of committing a specific behavior in the future. A standard outcome of interest is recidivism, or a person&#39;s relapse into criminal behavior, often after the person receives sanctions or undergoes intervention for a previous crime (NIJ).</description>
     </item>
     
     <item>
       <title>The Impact of Model Output Transformations on ROC</title>
-      <link>http://www.example.com/notebooks/output-transformations-roc-impact/</link>
+      <link>https://pmbaumgartner.github.io/notebooks/output-transformations-roc-impact/</link>
       <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/notebooks/output-transformations-roc-impact/</guid>
+      <guid>https://pmbaumgartner.github.io/notebooks/output-transformations-roc-impact/</guid>
       <description>Links Link to Notebook
 
 What&amp;rsquo;s in this notebook? This is the notebook behind my blog post The Impact of Model Output Transformations on ROC. It contains some seaborn plots, some pandas-fu with method chaining, a simulation of analyzing model results, and some plots with seaborn.</description>
@@ -63,10 +64,10 @@ What&amp;rsquo;s in this notebook? This is the notebook behind my blog post The 
     
     <item>
       <title>Colored ROC Curves</title>
-      <link>http://www.example.com/notebooks/colored-roc-curves/</link>
+      <link>https://pmbaumgartner.github.io/notebooks/colored-roc-curves/</link>
       <pubDate>Tue, 04 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/notebooks/colored-roc-curves/</guid>
+      <guid>https://pmbaumgartner.github.io/notebooks/colored-roc-curves/</guid>
       <description>Links Link to Notebook
 
 What&amp;rsquo;s in this notebook? The Receiver Operating Characteristic (ROC) curve is helpful in evaluating model performance, especially since Area Under the Curve (AUC ROC) has a several friendly interpretations. I use ROC curves in evaluating models I have to explain the model performance to non-technical folks. I was reading through Machine Learning: The Art and Science of Algorithms that Make Sense of Data and stumbled upon this nice visual and interpretation of ROC (tied to AUC):</description>
@@ -74,10 +75,10 @@ What&amp;rsquo;s in this notebook? The Receiver Operating Characteristic (ROC) c
     
     <item>
       <title>Biclustering (with Paul Revere)</title>
-      <link>http://www.example.com/notebooks/biclustering-with-paul-revere/</link>
+      <link>https://pmbaumgartner.github.io/notebooks/biclustering-with-paul-revere/</link>
       <pubDate>Wed, 29 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/notebooks/biclustering-with-paul-revere/</guid>
+      <guid>https://pmbaumgartner.github.io/notebooks/biclustering-with-paul-revere/</guid>
       <description>Links Link to Notebook
 
 What&amp;rsquo;s in this notebook? Biclustering is an unsupervised learning algorithm that clusters both the rows and columns. This notebook contains a workflow for completing biclustering in a network analysis context as well as a clean export of the data to an excel spreadsheet.</description>
@@ -85,10 +86,10 @@ What&amp;rsquo;s in this notebook? Biclustering is an unsupervised learning algo
     
     <item>
       <title>Dimension Reduction with TSNE and Bokeh Scatterplot</title>
-      <link>http://www.example.com/notebooks/tsne-to-bokeh/</link>
+      <link>https://pmbaumgartner.github.io/notebooks/tsne-to-bokeh/</link>
       <pubDate>Sat, 25 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/notebooks/tsne-to-bokeh/</guid>
+      <guid>https://pmbaumgartner.github.io/notebooks/tsne-to-bokeh/</guid>
       <description>Link to Notebook
 
 What&amp;rsquo;s in this notebook? This is a workflow I use often in data exploration. TSNE gives a good representation of high-dimensional data, and Bokeh is helpful in creating a simple interactive plots with contextual info given by colors and tooltips.
@@ -98,28 +99,28 @@ This workflow has been extremely helpful for:
     
     <item>
       <title>Some Tips for Using Jupyter Notebooks with Pelican</title>
-      <link>http://www.example.com/blog/jupyter-notebooks-for-pelican/</link>
+      <link>https://pmbaumgartner.github.io/blog/jupyter-notebooks-for-pelican/</link>
       <pubDate>Fri, 17 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/blog/jupyter-notebooks-for-pelican/</guid>
+      <guid>https://pmbaumgartner.github.io/blog/jupyter-notebooks-for-pelican/</guid>
       <description>Switching static site generators is a great way to kill a few hours on the weekend. I was previously using Jekyll because it works seamlessly with Github Pages, but I&amp;rsquo;m a python person so I figured I&amp;rsquo;d learn something new and move everything over to Pelican. I had also wanted an organized way to publicly store notebooks, code snippets, and workflows I was using regularly. My current storage system was randomly distributing them among various local folders, my employer&amp;rsquo;s gitlab instance, and Slack.</description>
     </item>
     
     <item>
       <title>PyData Carolinas Recap &amp; Presentation Reflection</title>
-      <link>http://www.example.com/blog/pydata-carolinas-recap/</link>
+      <link>https://pmbaumgartner.github.io/blog/pydata-carolinas-recap/</link>
       <pubDate>Sat, 17 Sep 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/blog/pydata-carolinas-recap/</guid>
+      <guid>https://pmbaumgartner.github.io/blog/pydata-carolinas-recap/</guid>
       <description>PyData Carolinas Recap &amp;amp; Presentation Reflection I was fortunate enough this year to attend the first PyData Carolinas conference, though my attendance was only made possible with the development and delivery of a tutorial talk. My colleague Rob and I proposed and then delivered a 90m tutorial talk on using NetworkX to do Social Network Analysis in Python (repo, video coming soon). The talk was aimed at intermediate users of python with some experience with data and the python language.</description>
     </item>
     
     <item>
       <title>Creating Slack Slash Commands with Python and Flask: Part 1</title>
-      <link>http://www.example.com/blog/slack-commands-with-python-and-flask/</link>
+      <link>https://pmbaumgartner.github.io/blog/slack-commands-with-python-and-flask/</link>
       <pubDate>Mon, 18 Jan 2016 00:00:00 +0000</pubDate>
       
-      <guid>http://www.example.com/blog/slack-commands-with-python-and-flask/</guid>
+      <guid>https://pmbaumgartner.github.io/blog/slack-commands-with-python-and-flask/</guid>
       <description>Part 1: Setting Up Our Workflow and a Simple Application A few weekends ago my pet project was to set up a drive time slash command in Slack. Searching through our organization&amp;rsquo;s Slack conversation history, on top of overhearing several conversations, it seems like traffic is both a source of anguish and a favorite topic for smalltalk in our office.
 With that in mind, I set out to create a Slash Command for our Slack team.</description>
     </item>
