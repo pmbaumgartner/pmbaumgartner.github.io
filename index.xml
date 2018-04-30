@@ -5,10 +5,21 @@
     <link>https://pmbaumgartner.github.io/</link>
     <description>Recent content in Home on Peter Baumgartner</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 16 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Apr 2018 15:22:07 -0400</lastBuildDate>
     
 	<atom:link href="https://pmbaumgartner.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Word Embeddings Explainer</title>
+      <link>https://pmbaumgartner.github.io/blog/word-embeddings-explainer/</link>
+      <pubDate>Mon, 30 Apr 2018 15:22:07 -0400</pubDate>
+      
+      <guid>https://pmbaumgartner.github.io/blog/word-embeddings-explainer/</guid>
+      <description>What are word embeddings? Imagine if every word had an address you could look up in an address book. Now also imagine if words that shared meaning lived in the same neighborhood. This is a simplified metaphor for word embeddings.
+For a visual example, here are simplified word embeddings for common 4- and 5-letter english words.
+Wordville Map What neighborhoods can you find in this embedding? A few that I see (going counterclockwise from top-left) are places and locations, cars/transportation, body parts/clothing, animals, food/drink, and people/relationships.</description>
+    </item>
     
     <item>
       <title>How to Test IPython Magic</title>
