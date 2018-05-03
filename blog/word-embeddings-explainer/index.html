@@ -147,7 +147,7 @@ ga('send', 'pageview');
   <polyline points="12 6 12 12 15 15"/>
   
 </svg>
-3 mins read
+4 mins read
 </span>
 
 
@@ -191,11 +191,11 @@ ga('send', 'pageview');
 <li>Let&rsquo;s <strong>chat</strong> about <strong>pizza</strong> and <strong>cake</strong>!</li>
 </ol>
 
-<p>It&rsquo;s clear to us, as humans, that the first two sentences share meaning and the 3rd sentence is different than them. A common way of calculating the similarity of two pieces of text is to count how many words overlap — however,  none of the sentences above have any meaningful words in common (once we remove common <em><a href="https://en.wikipedia.org/wiki/Stop_words">stopwords</a></em> like &ldquo;the&rdquo;). When measuring similarity in this way, all three of our example sentences are equally similar, since they all don&rsquo;t share any words.</p>
+<p>It&rsquo;s clear to us, as humans, that the first two sentences share meaning and the 3rd sentence is different than them. A common way of calculating the similarity of two pieces of text is to count how many words overlap — however,  none of the sentences above have any meaningful words in common (once we remove common <em><a href="https://en.wikipedia.org/wiki/Stop_words">stopwords</a></em> like &ldquo;the&rdquo;). When measuring similarity in this way, all three of our example sentences are equally similar, since they all don&rsquo;t share any words. With word embeddings, we can use semantic distance for this case.</p>
 
-<h5 id="measuring-similarity-with-embeddings">Measuring similarity with embeddings</h5>
+<h5 id="measuring-semantic-similarity-with-embeddings">Measuring semantic similarity with embeddings</h5>
 
-<p>With word embeddings, there are a few ways to measure the similarity of two sentences.</p>
+<p>With word embeddings there are a few ways to measure the similarity of two sentences.</p>
 
 <ol>
 <li><strong>Average Embeddings</strong> - Find the <em>average</em> location (centroid) of the words in both sentences. Then measure the distance between these two <em>average</em> locations.</li>
@@ -214,6 +214,29 @@ ga('send', 'pageview');
 <li>Projected the vectors of these words down to two dimensions with a technique called <a href="https://github.com/lmcinnes/umap">Universal Manifold Approximation and Projection</a> (UMAP).</li>
 <li>Used an optimization algorithm to map each point in 2D to a grid of 2D points, following <a href="https://github.com/kylemcdonald/CloudToGrid/blob/master/CloudToGrid.ipynb">this notebook</a>.</li>
 </ol>
+
+<h3 id="how-can-i-make-my-own-word-embeddings">How can I make my own word embeddings?</h3>
+
+<p>The <a href="https://github.com/RaRe-Technologies/gensim">gensim</a> library in python allows you to create your own word embeddings. It requires your input text to be tokenized.</p>
+
+<p>Here&rsquo;s a basic example &ndash; we will create a model from 10000 copies of 4 tokenized sentences. (Note: You will not get good results with this input data.)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> gensim 
+
+tokenized_sentences <span style="color:#f92672">=</span> [
+    [<span style="color:#e6db74">&#39;I&#39;</span>, <span style="color:#e6db74">&#39;love&#39;</span>, <span style="color:#e6db74">&#39;my&#39;</span>, <span style="color:#e6db74">&#39;cat&#39;</span>, <span style="color:#e6db74">&#39;.&#39;</span>],
+    [<span style="color:#e6db74">&#39;I&#39;</span>, <span style="color:#e6db74">&#39;love&#39;</span>, <span style="color:#e6db74">&#39;my&#39;</span>, <span style="color:#e6db74">&#39;dog&#39;</span>, <span style="color:#e6db74">&#39;!&#39;</span>],
+    [<span style="color:#e6db74">&#39;I&#39;</span>, <span style="color:#e6db74">&#39;love&#39;</span>, <span style="color:#e6db74">&#39;my&#39;</span>, <span style="color:#e6db74">&#39;cat&#39;</span>, <span style="color:#e6db74">&#39;,&#39;</span>, <span style="color:#e6db74">&#39;sometimes&#39;</span>, <span style="color:#e6db74">&#39;.&#39;</span>],
+    [<span style="color:#e6db74">&#39;I&#39;</span>, <span style="color:#e6db74">&#39;also&#39;</span>, <span style="color:#e6db74">&#39;like&#39;</span>, <span style="color:#e6db74">&#39;my&#39;</span>, <span style="color:#e6db74">&#39;dog&#39;</span>, <span style="color:#e6db74">&#39;!&#39;</span>]
+]
+
+many_tokenized_sentences <span style="color:#f92672">=</span> tokenized_sentences <span style="color:#f92672">*</span> <span style="color:#ae81ff">10000</span>
+
+<span style="color:#75715e"># create the model</span>
+model <span style="color:#f92672">=</span> gensim<span style="color:#f92672">.</span>models<span style="color:#f92672">.</span>Word2Vec(sentences<span style="color:#f92672">=</span>many_tokenized_sentences)
+
+<span style="color:#75715e"># find similar words</span>
+model<span style="color:#f92672">.</span>wv<span style="color:#f92672">.</span>most_similar(<span style="color:#e6db74">&#39;cat&#39;</span>)</code></pre></div>
+<p>One thing to note is that in comparison to other common NLP tasks, you will not want to remove stopwords or punctuation from the vocabulary, since they play an important role in providing context.</p>
 
 </div>
 
