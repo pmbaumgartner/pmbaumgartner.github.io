@@ -5,10 +5,20 @@
     <link>https://pmbaumgartner.github.io/</link>
     <description>Recent content in Home on Peter Baumgartner</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 30 Apr 2018 15:22:07 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 17 May 2018 19:29:07 -0600</lastBuildDate>
     
 	<atom:link href="https://pmbaumgartner.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Holy NLP! Understanding Part of Speech Tags, Dependency Parsing, and Named Entity Recognition</title>
+      <link>https://pmbaumgartner.github.io/blog/holy-nlp/</link>
+      <pubDate>Thu, 17 May 2018 19:29:07 -0600</pubDate>
+      
+      <guid>https://pmbaumgartner.github.io/blog/holy-nlp/</guid>
+      <description>Introduction When we think of data science, we often think of statistical analysis of numbers. But, more and more frequently, organizations generate a lot of unstructured text data that can be quantified and analyzed. A few examples are social network comments, product reviews, emails, interview transcripts.
+For analyzing text, data scientists often use Natural Language Processing (NLP). In this blog post we&amp;rsquo;ll 3 we&amp;rsquo;ll walk through 3 common NLP tasks and look at how they can be used together to analyze text.</description>
+    </item>
     
     <item>
       <title>Word Embeddings Explainer</title>
