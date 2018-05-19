@@ -5,10 +5,21 @@
     <link>https://pmbaumgartner.github.io/notebooks/</link>
     <description>Recent content in Notebooks on Peter Baumgartner</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 18 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 May 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://pmbaumgartner.github.io/notebooks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Holy NLP! Understanding Part of Speech Tags, Dependency Parsing, and Named Entity Recognition</title>
+      <link>https://pmbaumgartner.github.io/notebooks/holy-nlp/</link>
+      <pubDate>Sat, 19 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://pmbaumgartner.github.io/notebooks/holy-nlp/</guid>
+      <description>Links Link to Notebook
+
+What&amp;rsquo;s in this notebook? This is the notebook behind my blog post Holy NLP! Understanding Part of Speech Tags, Dependency Parsing, and Named Entity Recognition. It&amp;rsquo;s an exploration into Earth/Word Movers Distance algorithm that includes a there&amp;rsquo;s a lot of great matplotlib plots and some pandas-fu.</description>
+    </item>
     
     <item>
       <title>An Exploration in Earth &amp; Word Movers Distance</title>
@@ -18,7 +29,7 @@
       <guid>https://pmbaumgartner.github.io/notebooks/word-movers-distance-exploration/</guid>
       <description>Links Link to Notebook
 
-What&amp;rsquo;s in this notebook? This is the notebook behind my blog post An Exploration in Earth &amp;amp; Word Movers Distance. It&amp;rsquo;s an exploratin into Earth/Word Movers Distance algorithm that includes a there&amp;rsquo;s a lot of great matplotlib plots and some pandas-fu.</description>
+What&amp;rsquo;s in this notebook? This is the notebook behind my blog post An Exploration in Earth &amp;amp; Word Movers Distance. It&amp;rsquo;s an exploration into Earth/Word Movers Distance algorithm that includes a there&amp;rsquo;s a lot of great matplotlib plots and some pandas-fu.</description>
     </item>
     
     <item>

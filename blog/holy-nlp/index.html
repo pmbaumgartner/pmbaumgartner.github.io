@@ -173,13 +173,13 @@ ga('send', 'pageview');
 
 <p>We&rsquo;re going use the <code>spaCy</code> python library to apply these three tools together to discover who the major actors are in the Bible and what actions they take. From there, we&rsquo;ll see if we can make an interesting visualization with this structured data.</p>
 
-<p>This approach can be applied to any problem where you have a large collection of text documents and you want to understand who the major entities are, where they appear in the document, and what they&rsquo;re doing. DocumentCloud uses a <a href="https://www.documentcloud.org/public/search/">similar approach</a> to this with their &ldquo;View Entities&rdquo; analysis option.</p>
+<p>This approach can be applied to any problem where you have a large collection of text documents and you want to understand who the major entities are, where they appear in the document, and what they&rsquo;re doing. For example, DocumentCloud uses a <a href="https://www.documentcloud.org/public/search/">similar approach</a> to this with their &ldquo;View Entities&rdquo; analysis option.</p>
 
 <h3 id="tokens-part-of-speech-tagging">Tokens &amp; Part of Speech Tagging</h3>
 
 <p>One way to extract meaning from text is to analyze individual words. The processes of breaking up a text into words is called tokenization &ndash; the resulting words are referred to as tokens. Punctuation marks are also tokens. Each token in a sentence has several attributes we can use for analysis. The part of speech of a word is one example: nouns are a person, place, or thing; verbs are actions or occurrences; adjectives are words that describe nouns. Using these attributes, it&rsquo;s straightforward to create a summary of a piece of text by counting the most common nouns, verbs, and adjectives.</p>
 
-<p>Using <code>spaCy</code>, we can tokenize a piece of text and access the part of speech attribute for each token. As an example application, we&rsquo;ll tokenize the previous paragraph and count the most common nouns with the code below.</p>
+<p>Using <code>spaCy</code>, we can tokenize a piece of text and access the part of speech attribute for each token. As an example application, we&rsquo;ll tokenize the previous paragraph and count the most common nouns with the code below. We&rsquo;ll also lemmatize the tokens, which gives the root form a word to help us standardize across forms of a word.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> collections <span style="color:#f92672">import</span> Counter
 <span style="color:#f92672">import</span> spacy
 <span style="color:#f92672">from</span> tabulate <span style="color:#f92672">import</span> tabulate
@@ -288,11 +288,14 @@ bible_json <span style="color:#f92672">=</span> [line[<span style="color:#e6db74
 <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Number of Verses:&#39;</span>, len(bible_json))
 
 text_generator <span style="color:#f92672">=</span> (line[<span style="color:#e6db74">&#39;text&#39;</span>] <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> bible_json)
-verse_docs <span style="color:#f92672">=</span> [doc <span style="color:#66d9ef">for</span> doc <span style="color:#f92672">in</span> nlp<span style="color:#f92672">.</span>pipe(text_generator, n_threads<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)]</code></pre></div>
+
+<span style="color:#f92672">%</span>time verse_docs <span style="color:#f92672">=</span> [doc <span style="color:#66d9ef">for</span> doc <span style="color:#f92672">in</span> nlp<span style="color:#f92672">.</span>pipe(text_generator, n_threads<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)]</code></pre></div>
 <pre><code>Number of Verses: 31102
+CPU times: user 4min 41s, sys: 46.6 s, total: 5min 28s
+Wall time: 3min 15s
 </code></pre>
 
-<p>We&rsquo;ve pulled only the text from the json into <code>verse_docs</code>. For reference, here&rsquo;s what the first 3 rows of <code>bible_json</code> look like:</p>
+<p>We&rsquo;ve parsed the text from the json into <code>verse_docs</code> in a little over 3 minutes, about 160 verses a second. For reference, here&rsquo;s what the first 3 rows of <code>bible_json</code> look like:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">[{<span style="color:#e6db74">&#39;book_id&#39;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
   <span style="color:#e6db74">&#39;chapter&#39;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
   <span style="color:#e6db74">&#39;comment&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
@@ -642,7 +645,7 @@ most_unique <span style="color:#f92672">=</span> (action_df[action_df[<span styl
 <li><strong>Prophecy / Apocalyptic Literature:</strong> Revelation</li>
 </ul>
 
-<p>In addition, we&rsquo;ll separate the Old Testament from the New Testment with a red indicator line.</p>
+<p>In addition, we&rsquo;ll separate the Old Testament from the New Testament with a red indicator line.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
 <span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 <span style="color:#f92672">%</span>matplotlib inline
@@ -696,7 +699,7 @@ ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34
 <li>Entity Recognition can&rsquo;t tell the difference between two different people with the same name.
 
 <ul>
-<li>King Saul (Old Testmanet)</li>
+<li>King Saul (Old Testament)</li>
 <li>Paul (The Apostle) is referred to as Saul until midway through the book of Acts</li>
 </ul></li>
 <li>Some nouns are not actual entities. (Ye)</li>
@@ -712,16 +715,19 @@ ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34
 
 <h2 id="wrap-up">Wrap Up</h2>
 
-<p>We can get pretty far doing some interesting analysis by only using token-level attributes from text! In this blog post, we covered three key NLP tools:
-1. <strong>Part of Speech Tagging</strong> - What type of word is this?
-2. <strong>Dependency Parsing</strong> - How is this word related to other words in this sentence?
-3. <strong>Named Entity Recognition</strong> - Is this word a proper noun?</p>
+<p>We can get pretty far doing some interesting analysis by only using token-level attributes from text! In this blog post, we covered three key NLP tools:</p>
+
+<ol>
+<li><strong>Part of Speech Tagging</strong> - What type of word is this?</li>
+<li><strong>Dependency Parsing</strong> - How is this word related to other words in this sentence?</li>
+<li><strong>Named Entity Recognition</strong> - Is this word a proper noun?</li>
+</ol>
 
 <p>We applied these three tools together to discover who the major actors are in the Bible and what actions they take. We plotted those actors and actions to understand where each actor had their major actions.</p>
 
 <h3 id="thanks">Thanks</h3>
 
-<p>Thanks to <a href="http://www.vickiboykis.com/">Vicki Boykis</a> for providing feedback on earlier versions of this post.</p>
+<p>Thanks to <a href="http://www.vickiboykis.com/">Vicki Boykis</a> and <a href="http://austinrochford.com/">Austin Rochford</a> for providing feedback on earlier versions of this post.</p>
 
 </div>
 
