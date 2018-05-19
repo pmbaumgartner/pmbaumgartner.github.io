@@ -18,7 +18,7 @@
       <guid>https://pmbaumgartner.github.io/notebooks/holy-nlp/</guid>
       <description>Links Link to Notebook
 
-What&amp;rsquo;s in this notebook? This is the notebook behind my blog post Holy NLP! Understanding Part of Speech Tags, Dependency Parsing, and Named Entity Recognition. It&amp;rsquo;s an exploration into Earth/Word Movers Distance algorithm that includes a there&amp;rsquo;s a lot of great matplotlib plots and some pandas-fu.</description>
+What&amp;rsquo;s in this notebook? This is the notebook behind my blog post Holy NLP! Understanding Part of Speech Tags, Dependency Parsing, and Named Entity Recognition. It&amp;rsquo;s an exploration into three common NLP tasks applied on the Bible as a corpus, with some pandas aggregations and seaborn plotting to round things out.</description>
     </item>
     
     <item>
