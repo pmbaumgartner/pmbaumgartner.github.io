@@ -5,10 +5,20 @@
     <link>https://pmbaumgartner.github.io/blog/</link>
     <description>Recent content in Blog on Peter Baumgartner</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 17 May 2018 19:29:07 -0600</lastBuildDate>
+    <lastBuildDate>Mon, 06 Aug 2018 10:59:48 -0400</lastBuildDate>
     
 	<atom:link href="https://pmbaumgartner.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes on NLP Projects</title>
+      <link>https://pmbaumgartner.github.io/blog/notes-on-nlp-projects/</link>
+      <pubDate>Mon, 06 Aug 2018 10:59:48 -0400</pubDate>
+      
+      <guid>https://pmbaumgartner.github.io/blog/notes-on-nlp-projects/</guid>
+      <description>Summary: These are some notes, combined with my own experience and commentary, derived from Matthew Honnibal&amp;rsquo;s PyData Berlin 2018 talk: Building new NLP solutions with spaCy and Prodigy. I intended to use these as a reference when starting new NLP projects.
+In NLP and ML we talk a lot about models and optimization. But this isn&amp;#39;t where the battle is really won! I&amp;#39;ve been trying to explain my thoughts on this lately.</description>
+    </item>
     
     <item>
       <title>Holy NLP! Understanding Part of Speech Tags, Dependency Parsing, and Named Entity Recognition</title>
