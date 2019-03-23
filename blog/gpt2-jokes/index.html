@@ -5,15 +5,15 @@
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='Why did the chicken cross the road? Because it had no legs.
- These are the types of hilarious jokes the GPT-2 model can generate for you.
-After reading a few blog posts here and here I thought I would write up the process I used to fine tune gpt-2.
+ These are the types of hilarious jokes the gpt-2 small model can generate for you.
+After reading a few blog posts here and here, and playing around with gpt-2 small myself, I thought I would write up the full process I used to fine-tune and produce generative text.
 For this example, we&rsquo;ll use a dataset of jokes pulled from the /r/jokes subreddit to fine tune the GPT-2 small model to generate new jokes.'>
 <meta name='theme-color' content='#297FD5'>
 
 <meta property='og:title' content='Fine-Tuning GPT-2 Small for Generative Text • Peter Baumgartner'>
 <meta property='og:description' content='Why did the chicken cross the road? Because it had no legs.
- These are the types of hilarious jokes the GPT-2 model can generate for you.
-After reading a few blog posts here and here I thought I would write up the process I used to fine tune gpt-2.
+ These are the types of hilarious jokes the gpt-2 small model can generate for you.
+After reading a few blog posts here and here, and playing around with gpt-2 small myself, I thought I would write up the full process I used to fine-tune and produce generative text.
 For this example, we&rsquo;ll use a dataset of jokes pulled from the /r/jokes subreddit to fine tune the GPT-2 small model to generate new jokes.'>
 <meta property='og:url' content='https://pmbaumgartner.github.io/blog/gpt2-jokes/'>
 <meta property='og:site_name' content='Peter Baumgartner'>
@@ -174,13 +174,13 @@ ga('send', 'pageview');
 <p>Why did the chicken cross the road? Because it had no legs.</p>
 </blockquote>
 
-<p>These are the types of <em>hilarious</em> jokes the GPT-2 model can generate for you.</p>
+<p>These are the types of <em>hilarious</em> jokes the <code>gpt-2 small</code> model can generate for you.</p>
 
-<p>After reading a few blog posts <a href="https://www.gwern.net/RNN-metadata#finetuning-the-gpt-2-small-transformer-for-english-poetry-generation">here</a> and <a href="https://svilentodorov.xyz/blog/gpt-finetune">here</a> I thought I would write up the process I used to fine tune gpt-2.</p>
+<p>After reading a few blog posts <a href="https://www.gwern.net/RNN-metadata#finetuning-the-gpt-2-small-transformer-for-english-poetry-generation">here</a> and <a href="https://svilentodorov.xyz/blog/gpt-finetune">here</a>, and playing around with <code>gpt-2 small</code> myself, I thought I would write up the full process I used to fine-tune and produce generative text.</p>
 
-<p>For this example, we&rsquo;ll use a dataset of jokes pulled from the <code>/r/jokes</code> subreddit to fine tune the GPT-2 small model to generate new jokes.</p>
+<p>For this example, we&rsquo;ll use a dataset of jokes pulled from the <code>/r/jokes</code> subreddit to fine tune the GPT-2 small model to generate new jokes. You&rsquo;ll need a computer with a GPU and <code>nvidia-docker</code> for this.</p>
 
-<p>You&rsquo;ll need a computer with a GPU and nvidia-docker for this.</p>
+<h2 id="getting-started">Getting Started</h2>
 
 <p>We&rsquo;ll start by cloning the code to download and train the GPT-2 Small model. Fortunately, others have done the hard work of adding code to train on top of the <code>gpt-2 small</code> model that OpenAI released.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/nshepperd/gpt-2
@@ -313,23 +313,21 @@ Model prompt &gt;&gt;&gt; Why did the chicken cross the road?|
 &gt; I don't know, but his face is too close to the road.
 &gt; Because it was a chicken.
 &gt; The chicken crossed the road in the morning, and the morning is fine, the morning is fine.
-````
-
-What happens when `A guy walks into a bar...`?
-
 </code></pre>
 
-<p>Model prompt &gt;&gt;&gt; A guy walks into a bar&hellip;|
-&gt; A guy walks into a bar and orders a drink. The bartender asks him what the occasion is. The guy says that it&rsquo;s the new year and all the old ladies are going to get married. The bartender says no worries, they&rsquo;ll be there in time for the anniversary. The guy says that he&rsquo;s really excited and he&rsquo;s a bit nervous. The bartender is a bit more hesitant and asks him what the occasion is. The guy says &ldquo;I&rsquo;m a new guy, I was going to give a speech about my experience with alcohol.&rdquo; So the bartender gives him a little push and the guy says &ldquo;You know what, I&rsquo;m drunk.&rdquo; Then the bartender says &ldquo;Sorry, but you don&rsquo;t have the guts to talk like that.&rdquo;</p>
+<p>What happens when <code>A guy walks into a bar...</code>?</p>
 
-<pre><code>
-What about `What's the difference between`?
-
+<pre><code>Model prompt &gt;&gt;&gt; A guy walks into a bar...|
+&gt; A guy walks into a bar and orders a drink. The bartender asks him what the occasion is. The guy says that it's the new year and all the old ladies are going to get married. The bartender says no worries, they'll be there in time for the anniversary. The guy says that he's really excited and he's a bit nervous. The bartender is a bit more hesitant and asks him what the occasion is. The guy says &quot;I'm a new guy, I was going to give a speech about my experience with alcohol.&quot; So the bartender gives him a little push and the guy says &quot;You know what, I'm drunk.&quot; Then the bartender says &quot;Sorry, but you don't have the guts to talk like that.&quot;
 </code></pre>
 
-<p>Model prompt &gt;&gt;&gt; What&rsquo;s the difference between
-&ldquo; a woman that&rsquo;s going to have a baby and a guy that&rsquo;s never gonna have a baby?|One&rsquo;s a girl that&rsquo;s going to have a baby and the other is a guy that&rsquo;s never gonna have a baby.
-```</p>
+<p>What about <code>What's the difference between</code>?</p>
+
+<pre><code>Model prompt &gt;&gt;&gt; What's the difference between
+&quot; a woman that's going to have a baby and a guy that's never gonna have a baby?|One's a girl that's going to have a baby and the other is a guy that's never gonna have a baby.
+</code></pre>
+
+<p>Hilarious.</p>
 
 <h2 id="wrap-up">Wrap-up</h2>
 
