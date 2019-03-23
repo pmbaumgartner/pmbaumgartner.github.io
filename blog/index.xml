@@ -17,8 +17,9 @@
       
       <guid>https://pmbaumgartner.github.io/blog/gpt2-jokes/</guid>
       <description>Why did the chicken cross the road? Because it had no legs.
- These are the types of hilarious jokes the GPT-2 model can generate for you. If you&amp;rsquo;re into &amp;ldquo;forcing&amp;rdquo; robots to do stuff, this is the blog post for you. We&amp;rsquo;ll use a dataset of jokes pulled from the /r/jokes subreddit to fine tune the GPT-2 small model to generate new jokes.
-You&amp;rsquo;ll need a computer with a GPU and nvidia-docker for this.</description>
+ These are the types of hilarious jokes the GPT-2 model can generate for you.
+After reading a few blog posts here and here I thought I would write up the process I used to fine tune gpt-2.
+For this example, we&amp;rsquo;ll use a dataset of jokes pulled from the /r/jokes subreddit to fine tune the GPT-2 small model to generate new jokes.</description>
     </item>
     
     <item>
