@@ -17,7 +17,7 @@
       
       <guid>https://pmbaumgartner.github.io/blog/applied-nlp-lessons/</guid>
       <description>These are the main points and resources for my talk, Applied NLP: Lessons from the Field, delivered at spaCy IRL 2019.
-Summary Natural Language Processing projects often fail in their conception, in their delivery, or in their impact. To identify good candidate problems for NLP, talk to the client presenting you with a problem and first discuss how you would solve the problem without NLP. To successfully deliver an NLP project, acknowledge that project management is a skill and learn how to do it well: communicate the uncertainty you face and come up with metaphors to explain your work to non-technical stakeholders.</description>
+Summary Natural Language Processing projects often fail in their conception, in their delivery, or in their impact. To identify good candidate problems for NLP, talk to the subject matter expert presenting you with a problem and discuss how you would solve the problem without NLP. To successfully deliver an NLP project, acknowledge that project management is a skill and learn how to do it well: communicate the uncertainty you face and come up with metaphors to explain your work to non-technical stakeholders.</description>
     </item>
     
     <item>
