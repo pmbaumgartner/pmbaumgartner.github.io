@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang='en'>
-
-<head>
+<html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='Introduction When we think of data science, we often think of statistical analysis of numbers. But, more and more frequently, organizations generate a lot of unstructured text data that can be quantified and analyzed. A few examples are social network comments, product reviews, emails, interview transcripts.
@@ -13,34 +11,36 @@ For analyzing text, data scientists often use Natural Language Processing (NLP).
 For analyzing text, data scientists often use Natural Language Processing (NLP). In this blog post we&rsquo;ll 3 we&rsquo;ll walk through 3 common NLP tasks and look at how they can be used together to analyze text.'>
 <meta property='og:url' content='https://pmbaumgartner.github.io/blog/holy-nlp/'>
 <meta property='og:site_name' content='Peter Baumgartner'>
-<meta property='og:type' content='article'><meta property='article:section' content='Blog'><meta property='article:published_time' content='2018-05-17T19:29:07-06:00'/><meta property='article:modified_time' content='2018-05-17T19:29:07-06:00'/><meta name='twitter:card' content='summary'>
+<meta property='og:type' content='article'><meta property='article:section' content='blog'><meta property='article:published_time' content='2018-05-17T19:29:07-06:00'/><meta property='article:modified_time' content='2018-05-17T19:29:07-06:00'/><meta name='twitter:card' content='summary'>
 
-<meta name="generator" content="Hugo 0.38.1" />
+<meta name="generator" content="Hugo 0.55.6" />
 
   <title>Holy NLP! Understanding Part of Speech Tags, Dependency Parsing, and Named Entity Recognition • Peter Baumgartner</title>
   <link rel='canonical' href='https://pmbaumgartner.github.io/blog/holy-nlp/'>
   
   
   <link rel='icon' href='/favicon.ico'>
-<link rel='stylesheet' href='/assets/css/main.b8f9eb89.css'><link rel='stylesheet' href='/css/custom.css'><style>
+<link rel='stylesheet' href='/assets/css/main.6a060eb7.css'><link rel='stylesheet' href='/css/custom.css'><style>
 :root{--color-accent:#297FD5;}
 </style>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-72692144-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-72692144-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
 
 </head>
-
-
 <body class='page type-blog has-sidebar'>
 
-  <div class='site'>
-
-    <div id='sidebar' class='sidebar'>
+  <div class='site'><div id='sidebar' class='sidebar'>
   <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
 
   <div class='container'><section class='widget widget-about sep-after'>
@@ -53,7 +53,9 @@ ga('send', 'pageview');
     </div>
     
     <h2 class='title site-title '>
-    Peter Baumgartner
+      <a href='/'>
+      Peter Baumgartner
+      </a>
     </h2>
     <div class='desc'>
     Data Scientist
@@ -64,11 +66,7 @@ ga('send', 'pageview');
 </div>
 
   <div class='sidebar-overlay'></div>
-</div>
-
-    <div class='main'>
-
-      <nav id='main-menu' class='main-menu' aria-label='Main Menu'>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
   <div class='container'>
     <a class='screen-reader-text' href='#content'>Skip to Content</a>
 
@@ -98,8 +96,9 @@ ga('send', 'pageview');
         <a href='/notebooks/'>Notebooks</a>
       </li></ul>
   </div>
-</nav>
-
+</nav><div class='header-widgets'>
+        <div class='container'></div>
+      </div>
 
       <header id='header' class='header site-header'>
         <div class='container sep-after'>
@@ -119,8 +118,7 @@ ga('send', 'pageview');
       
 
     </div>
-    
-<div class='entry-meta'>
+    <div class='entry-meta'>
   <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
@@ -739,7 +737,6 @@ ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34
   
 <footer class='entry-footer'>
   <div class='container sep-before'>
-  
   </div>
 </footer>
 
@@ -776,9 +773,7 @@ ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34
       </main>
 
       <footer id='footer' class='footer'>
-        <div class='container sep-before'>
-          
-          <div class='copyright'>
+        <div class='container sep-before'><div class='copyright'>
   <p></p>
 </div>
 
@@ -786,9 +781,10 @@ ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34
       </footer>
 
     </div>
-  </div><script>window.__public_path__='\/assets\/js\/'</script>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
 
-<script src='/assets/js/main.4d3afaaf.js'></script><script src='/js/custom.js'></script>
+<script src='/assets/js/main.67d669ac.js'></script><script src='/js/custom.js'></script>
+
 </body>
 
 </html>

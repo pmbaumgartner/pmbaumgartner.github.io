@@ -5,10 +5,20 @@
     <link>https://pmbaumgartner.github.io/</link>
     <description>Recent content in Home on Peter Baumgartner</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 23 Mar 2019 11:16:39 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jul 2019 06:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://pmbaumgartner.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Applied NLP: Lessons from the Field</title>
+      <link>https://pmbaumgartner.github.io/blog/applied-nlp-lessons/</link>
+      <pubDate>Sat, 06 Jul 2019 06:00:00 +0000</pubDate>
+      
+      <guid>https://pmbaumgartner.github.io/blog/applied-nlp-lessons/</guid>
+      <description>These are the main points and resources for my talk, Applied NLP: Lessons from the Field, delivered at spaCy IRL 2019.
+Summary Natural Language Processing projects often fail in their conception, in their delivery, or in their impact. To identify good candidate problems for NLP, talk to the subject matter expert presenting you with a problem and discuss how you would solve the problem without NLP. To successfully deliver an NLP project, acknowledge that project management is a skill and learn how to do it well: communicate the uncertainty you face and come up with metaphors to explain your work to non-technical stakeholders.</description>
+    </item>
     
     <item>
       <title>Fine-Tuning GPT-2 Small for Generative Text</title>
