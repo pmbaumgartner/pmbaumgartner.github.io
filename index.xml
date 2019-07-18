@@ -16,8 +16,7 @@
       <pubDate>Thu, 18 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://pmbaumgartner.github.io/blog/spacy-rule-based-matcher-workflow/</guid>
-      <description>TL;DR The Rule-Based Matcher in spaCy is awesome when you have small datasets, need to explain your algorithm, locate specific language patterns within a document, favor performance and speed, and you&amp;rsquo;re comfortable with the linguistic attributes needed to write rules. I created a binder notebook that replicates a workflow I successfully used on a recent project using an example dataset of Amazon product reviews.
-Overview Recently I&amp;rsquo;ve been spending time with spaCy&amp;rsquo;s Rule-Based Matcher for a client project.</description>
+      <description>TL;DR The Rule-Based Matcher in spaCy is awesome when you have small datasets, need to explain your algorithm, locate specific language patterns within a document, favor performance and speed, and you&amp;rsquo;re comfortable with the token attributes needed to write rules. I created a notebook runnable in binder with a worked example on a dataset of product reviews from Amazon that replicates a workflow I successfully used on a recent project.</description>
     </item>
     
     <item>
@@ -136,6 +135,18 @@ To get started, we&amp;rsquo;ll follow the benign pedagogical path of copying th
       <description>Links Link to Notebook
 
 What&amp;rsquo;s in this notebook? This is the notebook behind my blog post An Exploration in Earth &amp;amp; Word Movers Distance. It&amp;rsquo;s an exploration into Earth/Word Movers Distance algorithm that includes a there&amp;rsquo;s a lot of great matplotlib plots and some pandas-fu.</description>
+    </item>
+    
+    <item>
+      <title>Spacy Rule Based Matcher Workflow</title>
+      <link>https://pmbaumgartner.github.io/notebooks/spacy-rule-based-matcher/</link>
+      <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://pmbaumgartner.github.io/notebooks/spacy-rule-based-matcher/</guid>
+      <description>Links Link to Notebook
+
+What&amp;rsquo;s in this notebook? This is a worked example derived from my blog post on Making the Most of spaCy&amp;rsquo;s Rule-Based Matcher. It works through developing a matching algorithm to identify reasons people purchase products from a dataset of Amazon product reviews. For example, you can automatically generate a list like this for any product:
+Customers buy this product ... ... as a replacement for a Salton model.</description>
     </item>
     
     <item>

@@ -16,8 +16,7 @@
       <pubDate>Thu, 18 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://pmbaumgartner.github.io/blog/spacy-rule-based-matcher-workflow/</guid>
-      <description>TL;DR The Rule-Based Matcher in spaCy is awesome when you have small datasets, need to explain your algorithm, locate specific language patterns within a document, favor performance and speed, and you&amp;rsquo;re comfortable with the linguistic attributes needed to write rules. I created a binder notebook that replicates a workflow I successfully used on a recent project using an example dataset of Amazon product reviews.
-Overview Recently I&amp;rsquo;ve been spending time with spaCy&amp;rsquo;s Rule-Based Matcher for a client project.</description>
+      <description>TL;DR The Rule-Based Matcher in spaCy is awesome when you have small datasets, need to explain your algorithm, locate specific language patterns within a document, favor performance and speed, and you&amp;rsquo;re comfortable with the token attributes needed to write rules. I created a notebook runnable in binder with a worked example on a dataset of product reviews from Amazon that replicates a workflow I successfully used on a recent project.</description>
     </item>
     
     <item>

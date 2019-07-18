@@ -44,6 +44,18 @@ What&amp;rsquo;s in this notebook? This is the notebook behind my blog post An E
     </item>
     
     <item>
+      <title>Spacy Rule Based Matcher Workflow</title>
+      <link>https://pmbaumgartner.github.io/notebooks/spacy-rule-based-matcher/</link>
+      <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://pmbaumgartner.github.io/notebooks/spacy-rule-based-matcher/</guid>
+      <description>Links Link to Notebook
+
+What&amp;rsquo;s in this notebook? This is a worked example derived from my blog post on Making the Most of spaCy&amp;rsquo;s Rule-Based Matcher. It works through developing a matching algorithm to identify reasons people purchase products from a dataset of Amazon product reviews. For example, you can automatically generate a list like this for any product:
+Customers buy this product ... ... as a replacement for a Salton model.</description>
+    </item>
+    
+    <item>
       <title>The Impact of Model Output Transformations on ROC</title>
       <link>https://pmbaumgartner.github.io/notebooks/output-transformations-roc-impact/</link>
       <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
