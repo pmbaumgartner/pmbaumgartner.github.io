@@ -5,10 +5,20 @@
     <link>https://pmbaumgartner.github.io/blog/</link>
     <description>Recent content in Blog on Peter Baumgartner</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 06 Jul 2019 06:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://pmbaumgartner.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Making the Most of spaCy&#39;s Rule-Based Matcher</title>
+      <link>https://pmbaumgartner.github.io/blog/spacy-rule-based-matcher-workflow/</link>
+      <pubDate>Thu, 18 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://pmbaumgartner.github.io/blog/spacy-rule-based-matcher-workflow/</guid>
+      <description>TL;DR The Rule-Based Matcher in spaCy is awesome when you have small datasets, need to explain your algorithm, locate specific language patterns within a document, favor performance and speed, and you&amp;rsquo;re comfortable with the linguistic attributes needed to write rules. I created a binder notebook that replicates a workflow I successfully used on a recent project using an example dataset of Amazon product reviews.
+Overview Recently I&amp;rsquo;ve been spending time with spaCy&amp;rsquo;s Rule-Based Matcher for a client project.</description>
+    </item>
     
     <item>
       <title>Applied NLP: Lessons from the Field</title>

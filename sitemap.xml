@@ -4,17 +4,22 @@
   
   <url>
     <loc>https://pmbaumgartner.github.io/</loc>
-    <lastmod>2019-07-17T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://pmbaumgartner.github.io/blog/</loc>
-    <lastmod>2019-07-06T06:00:00+00:00</lastmod>
+    <lastmod>2019-07-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://pmbaumgartner.github.io/notebooks/</loc>
     <lastmod>2019-07-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pmbaumgartner.github.io/blog/spacy-rule-based-matcher-workflow/</loc>
+    <lastmod>2019-07-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
