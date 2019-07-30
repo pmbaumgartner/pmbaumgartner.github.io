@@ -5,10 +5,21 @@
     <link>https://pmbaumgartner.github.io/blog/</link>
     <description>Recent content in Blog on Peter Baumgartner</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 18 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jul 2019 13:27:47 -0400</lastBuildDate>
     
 	<atom:link href="https://pmbaumgartner.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tableau and Raw Data as Sneaky Technical Debt</title>
+      <link>https://pmbaumgartner.github.io/blog/tableau-as-sneaky-technical-data-debt/</link>
+      <pubDate>Tue, 30 Jul 2019 13:27:47 -0400</pubDate>
+      
+      <guid>https://pmbaumgartner.github.io/blog/tableau-as-sneaky-technical-data-debt/</guid>
+      <description>We work on a lot of projects where we need to iterate quickly on visualizations generated from a flat file of data. Tableau is a great tool to get started with this, but its ease of use can quickly lead people towards illusions of progress, misunderstandings of the underlying data, or technical debt.
+Usually this comes up in a conversation like this:
+ Them: I want to build this specific type of chart that represents this information.</description>
+    </item>
     
     <item>
       <title>Making the Most of spaCy&#39;s Rule-Based Matcher</title>
