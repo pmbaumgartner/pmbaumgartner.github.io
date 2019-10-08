@@ -4,17 +4,22 @@
   
   <url>
     <loc>https://pmbaumgartner.github.io/</loc>
-    <lastmod>2019-07-30T13:27:47-04:00</lastmod>
+    <lastmod>2019-10-08T05:52:23-04:00</lastmod>
   </url>
   
   <url>
     <loc>https://pmbaumgartner.github.io/blog/</loc>
-    <lastmod>2019-07-30T13:27:47-04:00</lastmod>
+    <lastmod>2019-10-08T05:52:23-04:00</lastmod>
   </url>
   
   <url>
     <loc>https://pmbaumgartner.github.io/notebooks/</loc>
     <lastmod>2019-07-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pmbaumgartner.github.io/blog/the-fastest-way-to-load-data-django-postgresql/</loc>
+    <lastmod>2019-10-08T05:52:23-04:00</lastmod>
   </url>
   
   <url>
